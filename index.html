@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#006633">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="LMU Dashboard">
+<link rel="manifest" href="manifest.webmanifest">
+<title>LMU Dashboard</title>
+<style>
+:root{--green:#006633;--bg:#f4f6f5;--card:#fff;--text:#17201b;--muted:#68736c;--line:#dfe5e1;--shadow:0 5px 20px rgba(0,0,0,.05)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111512;--card:#1b211d;--text:#f4f7f5;--muted:#a5afa8;--line:#303a33;--shadow:none}}
+:root[data-theme="dark"]{--bg:#111512;--card:#1b211d;--text:#f4f7f5;--muted:#a5afa8;--line:#303a33;--shadow:none}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+header{background:var(--green);color:white;padding:calc(22px + env(safe-area-inset-top)) 18px 22px}
+.wrap{max-width:920px;margin:auto}.top{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-size:12px;letter-spacing:.09em;opacity:.82}.title{font-size:29px;font-weight:780;margin-top:5px}
+button,.btn{font:inherit}.iconbtn{border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);color:#fff;border-radius:12px;padding:9px 12px}
+main{padding:18px 15px 80px}.section{margin:10px 0 24px}.section-head{display:flex;justify-content:space-between;align-items:center;margin:0 4px 9px}.section h2{font-size:13px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin:0}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card{position:relative;display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;min-height:96px;box-shadow:var(--shadow)}
+.card strong{display:block;font-size:17px;margin-bottom:7px}.card span{display:block;font-size:12.5px;line-height:1.35;color:var(--muted)}.card:active{transform:scale(.985)}
+.primary{border-top:3px solid var(--green)}.remove{display:none;position:absolute;right:8px;top:8px;border:0;border-radius:50%;width:25px;height:25px;background:#d33;color:white;font-weight:bold}
+.editing .remove{display:block}.add{border:1px dashed var(--line);background:transparent;color:var(--muted);display:flex;align-items:center;justify-content:center;cursor:pointer}
+.sheet{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:10;padding:20px}.sheet.open{display:flex;align-items:flex-end;justify-content:center}.panel{width:min(720px,100%);max-height:86vh;overflow:auto;background:var(--card);border-radius:22px;padding:20px;color:var(--text)}
+.panel h3{margin:0 0 15px}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{margin:12px 0}.field label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}.field input,.field select{width:100%;padding:12px;border-radius:11px;border:1px solid var(--line);background:var(--bg);color:var(--text);font-size:16px}
+.actions{display:flex;gap:8px;margin-top:15px}.actions button{flex:1;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--text)}.actions .save{background:var(--green);color:#fff;border-color:var(--green)}
+.note{font-size:12px;color:var(--muted);line-height:1.45}.footer{text-align:center;color:var(--muted);font-size:11px;margin-top:30px}
+@media(min-width:650px){.grid{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<div class="top"><div><div class="brand">LUDWIG-MAXIMILIANS-UNIVERSITÄT MÜNCHEN</div><div class="title" id="title">LMU Dashboard</div></div>
+<button class="iconbtn" id="settings">Anpassen</button></div>
+</div></header>
+<main class="wrap" id="main"></main>
+
+<div class="sheet" id="sheet"><div class="panel">
+<h3>Dashboard anpassen</h3>
+<div class="row">
+<div class="field"><label>Sprache</label><select id="lang"><option value="de">Deutsch</option><option value="en">English</option><option value="zh">中文</option></select></div>
+<div class="field"><label>Darstellung</label><select id="theme"><option value="system">System</option><option value="light">Hell</option><option value="dark">Dunkel</option></select></div>
+</div>
+<div class="field"><label>Fach / Institut hinzufügen</label><select id="preset"></select></div>
+<div class="field"><label>Eigener Name</label><input id="customName" placeholder="z. B. Philosophie"></div>
+<div class="field"><label>Eigene URL</label><input id="customUrl" type="url" placeholder="https://…"></div>
+<div class="actions"><button id="close">Schließen</button><button class="save" id="add">Hinzufügen</button></div>
+<p class="note">Deine Auswahl wird nur lokal in diesem Browser gespeichert. Es werden keine LMU-Zugangsdaten gespeichert.</p>
+</div></div>
+
+<script>
+const T={
+de:{study:"Studium",services:"Studierendenservice",subjects:"Meine Fächer",campus:"Campus",edit:"Anpassen",close:"Schließen",add:"Hinzufügen",custom:"Eigener Link"},
+en:{study:"Study",services:"Student services",subjects:"My subjects",campus:"Campus",edit:"Customize",close:"Close",add:"Add",custom:"Custom link"},
+zh:{study:"学习",services:"学生事务",subjects:"我的院系",campus:"校园",edit:"自定义",close:"关闭",add:"添加",custom:"自定义链接"}
+};
+const core={
+study:[
+["LSF","Vorlesungen · Belegung · Stundenplan","https://www.lsf.lmu.de/"],
+["Moodle","Kurse · Materialien · Aufgaben","https://moodle.lmu.de/"]
+],
+services:[
+["Stud-Online / QISSOS","Bescheinigungen · Beitragskonto","https://qissos.verwaltung.uni-muenchen.de/qisserversos/rds?state=user&type=0"],
+["Mailbox","Campus-Mail · Webmail","https://mailbox.portal.uni-muenchen.de/"],
+["Benutzerkonto","Kennung · Passwort · Einstellungen","https://www.lmu.de/de/die-lmu/struktur/zentrale-universitaetsverwaltung/it-services-division/it-servicedesk/zentrale-it-angebote/lmu-benutzerkonto/"],
+["Workspace","Studienservices · Tools","https://www.lmu.de/de/workspace-fuer-studierende/"]
+],
+campus:[
+["UB München","Bibliothek · Recherche · E-Medien","https://www.ub.uni-muenchen.de/"],
+["Mensa","Speisepläne · Studierendenwerk","https://www.studierendenwerk-muenchen-oberbayern.de/mensa/"],
+["LMU","Universität · News · Informationen","https://www.lmu.de/"],
+["IT-Servicedesk","WLAN · Kennung · IT-Hilfe","https://www.lmu.de/de/die-lmu/struktur/zentrale-universitaetsverwaltung/it-services-division/it-servicedesk/"]
+]};
+const presets=[
+["Soziologie","https://www.soziologie.lmu.de/"],
+["Statistik","https://www.statistik.lmu.de/"],
+["Politikwissenschaft (GSI)","https://www.gsi.lmu.de/"],
+["Kommunikationswissenschaft (IfKW)","https://www.ifkw.lmu.de/"],
+["Philosophie","https://www.philosophie.lmu.de/"],
+["Physik","https://www.physik.lmu.de/"],
+["Mathematik","https://www.mathematik.lmu.de/"],
+["Informatik","https://www.ifi.lmu.de/"],
+["BWL","https://www.som.lmu.de/"],
+["VWL","https://www.econ.lmu.de/"],
+["Jura","https://www.jura.lmu.de/"],
+["Medizin","https://www.med.lmu.de/"],
+["Psychologie","https://www.psy.lmu.de/"],
+["Geschichte","https://www.geschichte.lmu.de/"]
+];
+let state=JSON.parse(localStorage.getItem("lmuDash")||'{"lang":"de","theme":"system","subjects":[["Soziologie","https://www.soziologie.lmu.de/"],["Statistik","https://www.statistik.lmu.de/"]]}');
+const $=x=>document.getElementById(x);
+function save(){localStorage.setItem("lmuDash",JSON.stringify(state))}
+function card(x, removable=false){return `<a class="card ${removable?'subject':''}" href="${x[2]||x[1]}" target="_self"><strong>${x[0]}</strong><span>${x[2]?x[1]:"Institut / Fachbereich"}</span>${removable?'<button class="remove" type="button">×</button>':''}</a>`}
+function section(title,cards,id){return `<section class="section"><div class="section-head"><h2>${title}</h2></div><div class="grid" id="${id}">${cards}</div></section>`}
+function render(){
+let tr=T[state.lang]||T.de;
+$("settings").textContent=tr.edit;$("close").textContent=tr.close;$("add").textContent=tr.add;
+document.documentElement.lang=state.lang==="zh"?"zh-CN":state.lang;
+if(state.theme==="system") document.documentElement.removeAttribute("data-theme"); else document.documentElement.dataset.theme=state.theme;
+let subjects=state.subjects.map(s=>card(s,true)).join("")+`<div class="card add" id="quickAdd">＋ ${tr.add}</div>`;
+$("main").innerHTML=section(tr.study,core.study.map(x=>card(x)).join(""),"study")+section(tr.services,core.services.map(x=>card(x)).join(""),"services")+section(tr.subjects,subjects,"subjects")+section(tr.campus,core.campus.map(x=>card(x)).join(""),"campus")+`<div class="footer">Unofficial LMU student dashboard · Einstellungen bleiben auf deinem Gerät</div>`;
+$("quickAdd").onclick=()=>openSheet();
+document.querySelectorAll(".subject .remove").forEach((b,i)=>b.onclick=e=>{e.preventDefault();e.stopPropagation();state.subjects.splice(i,1);save();render()});
+}
+function openSheet(){$("sheet").classList.add("open");document.body.classList.add("editing");$("lang").value=state.lang;$("theme").value=state.theme}
+$("settings").onclick=openSheet;$("close").onclick=()=>{$("sheet").classList.remove("open");document.body.classList.remove("editing")};
+$("lang").onchange=e=>{state.lang=e.target.value;save();render()};
+$("theme").onchange=e=>{state.theme=e.target.value;save();render()};
+$("preset").innerHTML='<option value="">— auswählen —</option>'+presets.map((p,i)=>`<option value="${i}">${p[0]}</option>`).join("");
+$("add").onclick=()=>{
+let n=$("customName").value.trim(),u=$("customUrl").value.trim(),pi=$("preset").value;
+if(n&&u){state.subjects.push([n,u])}
+else if(pi!==""){let p=presets[+pi];if(!state.subjects.some(x=>x[0]===p[0]))state.subjects.push(p)}
+else return;
+save();$("customName").value="";$("customUrl").value="";$("preset").value="";render()
+};
+$("sheet").onclick=e=>{if(e.target===$("sheet"))$("close").click()};
+render();
+if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});
+</script>
+</body></html>

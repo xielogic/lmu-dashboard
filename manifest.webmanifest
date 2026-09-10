@@ -1,0 +1,9 @@
+{
+  "name": "LMU Student Dashboard",
+  "short_name": "LMU Dashboard",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4f6f5",
+  "theme_color": "#006633",
+  "description": "Unofficial customizable dashboard for LMU students"
+}
