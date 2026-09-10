@@ -1,7 +1,7 @@
 :root {
-  --green-900: #003726;
-  --green-800: #00583d;
-  --green-700: #007a53;
+  --green-900: #003b22;
+  --green-800: #00883a;
+  --green-700: #007432;
   --mint-100: #e5f4ec;
   --mint-200: #c5e6d4;
   --blue-600: #1f5f97;
@@ -212,7 +212,7 @@ a {
 }
 
 .segmented button[aria-pressed="true"] {
-  background: var(--green-800);
+  background: #00883a;
   color: white;
 }
 
