@@ -1,4 +1,4 @@
-LMU Dashboard V5
+LMU Dashboard V6
 Unofficial customizable dashboard for LMU students
 
 重要定位
@@ -9,7 +9,7 @@ Unofficial customizable dashboard for LMU students
 文件结构
 上传到 GitHub Pages 仓库根目录时，请保留这个结构：
 
-lmu-dashboard-v5/
+lmu-dashboard-v6/
   index.html
   app.css
   app.js
@@ -25,9 +25,9 @@ lmu-dashboard-v5/
       maskable-512.png
   README.txt
 
-从 V4 更新到 V5
+从 V5 更新到 V6
 1. 解压 ZIP。
-2. 打开解压后的 lmu-dashboard-v5 文件夹。
+2. 打开解压后的 lmu-dashboard-v6 文件夹。
 3. 把里面的 index.html、app.css、app.js、manifest.webmanifest、sw.js 和 assets 文件夹一起上传到 GitHub 仓库根目录。
 4. 如果仓库里已有旧版 index.html、manifest.webmanifest、sw.js，请用新版替换。
 5. GitHub Pages 设置继续保持：
@@ -41,10 +41,15 @@ lmu-dashboard-v5/
 - 系统不会默认显示某个用户的专业。
 - 用户可以之后继续添加专业、隐藏服务、调整卡片顺序、切换语言和外观。
 
+V6 更新重点
+- 分组标题恢复随语言切换：德语、英语、中文分别显示对应语言。
+- 服务模块标题固定使用德语名称，例如 Benutzerkonto、Studienverwaltung、IT-Servicedesk。
+- 校园分组新增 CloudPrinting，链接到 LMU 打印服务。
+- 继续优化 LMU 风格视觉：更正式的页眉、更干净的页面背景、更克制的卡片和分组样式。
+
 V5 更新重点
 - 主页移除“常用入口”标题、说明文字和服务数量标签。
 - QISSOS 显示名称改为 Studienverwaltung。
-- 主页分组标题在德语、英语、中文下都固定显示德语：Studium、Studierendenservice、Campus、Meine Fächer。
 - Meine Fächer 板块加回主页，但不显示长介绍。
 
 V4 更新重点

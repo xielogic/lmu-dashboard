@@ -1,19 +1,19 @@
 :root {
-  --green-900: #003f2d;
+  --green-900: #003726;
   --green-800: #00583d;
-  --green-700: #00734f;
-  --mint-100: #dff4e8;
-  --mint-200: #bce9d2;
-  --blue-600: #2563eb;
-  --amber-500: #d99a21;
-  --ink-950: #101512;
-  --ink-800: #24312b;
-  --ink-600: #58645f;
-  --line: #dbe5df;
+  --green-700: #007a53;
+  --mint-100: #e5f4ec;
+  --mint-200: #c5e6d4;
+  --blue-600: #1f5f97;
+  --amber-500: #c58a18;
+  --ink-950: #101714;
+  --ink-800: #25342d;
+  --ink-600: #5d6964;
+  --line: #d6e3dc;
   --surface: #ffffff;
-  --surface-soft: #f4f8f5;
+  --surface-soft: #f6faf8;
   --surface-raised: #ffffff;
-  --shadow: 0 20px 50px rgba(0, 63, 45, 0.12);
+  --shadow: 0 16px 42px rgba(0, 55, 38, 0.09);
   --radius: 8px;
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   color-scheme: light;
@@ -54,7 +54,7 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
-    linear-gradient(180deg, rgba(0, 88, 61, 0.08), transparent 18rem),
+    linear-gradient(180deg, rgba(0, 88, 61, 0.07), rgba(255, 255, 255, 0.92) 18rem, var(--surface-soft)),
     var(--surface-soft);
   color: var(--ink-950);
 }
@@ -109,11 +109,23 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  min-height: 4.9rem;
+  min-height: 5.1rem;
   padding: 0.72rem clamp(1rem, 3vw, 2rem);
-  border-bottom: 1px solid var(--line);
-  background: color-mix(in srgb, var(--surface) 90%, transparent);
-  backdrop-filter: blur(16px);
+  border-bottom: 0;
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  box-shadow: 0 1px 0 var(--line), 0 10px 28px rgba(0, 55, 38, 0.05);
+  backdrop-filter: blur(14px);
+}
+
+.topbar::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--green-800), var(--green-700) 72%, var(--blue-600));
+  pointer-events: none;
 }
 
 .brand {
@@ -126,7 +138,7 @@ a {
 .lmu-logo {
   display: block;
   width: auto;
-  height: clamp(2.7rem, 6vw, 3.45rem);
+  height: clamp(2.95rem, 6vw, 3.75rem);
   flex: 0 0 auto;
 }
 
@@ -221,6 +233,7 @@ a {
   border-color: var(--line);
   background: var(--surface-raised);
   color: var(--ink-800);
+  box-shadow: 0 1px 2px rgba(0, 55, 38, 0.05);
 }
 
 .text-button,
@@ -235,6 +248,7 @@ a {
 .secondary-button {
   border-color: var(--line);
   background: var(--surface-raised);
+  box-shadow: 0 1px 2px rgba(0, 55, 38, 0.05);
 }
 
 .ghost-button {
@@ -247,6 +261,7 @@ a {
   background: var(--green-800);
   color: white;
   font-weight: 760;
+  box-shadow: 0 8px 18px rgba(0, 88, 61, 0.16);
 }
 
 .danger-button {
@@ -269,9 +284,9 @@ a {
 }
 
 .app-shell {
-  width: min(1180px, calc(100% - 2rem));
+  width: min(1240px, calc(100% - 2rem));
   margin: 0 auto;
-  padding: clamp(1.2rem, 4vw, 2rem) 0 calc(3rem + var(--safe-bottom));
+  padding: clamp(1rem, 3vw, 1.8rem) 0 calc(3rem + var(--safe-bottom));
 }
 
 .setup-shell {
@@ -290,7 +305,7 @@ a {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: color-mix(in srgb, var(--surface-raised) 94%, transparent);
-  box-shadow: var(--shadow);
+  box-shadow: 0 10px 26px rgba(0, 55, 38, 0.07);
 }
 
 .setup-copy {
@@ -587,24 +602,24 @@ a {
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 1rem;
   align-items: center;
-  padding: clamp(1rem, 3vw, 1.4rem);
+  padding: 0.15rem 0 clamp(0.95rem, 2.6vw, 1.2rem);
   border-bottom: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface-raised);
-  box-shadow: 0 14px 38px rgba(0, 63, 45, 0.08);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .dashboard-hero h2 {
   margin: 0;
   color: var(--green-900);
-  font-size: clamp(1.38rem, 3.4vw, 2.15rem);
+  font-size: clamp(1.45rem, 3vw, 2rem);
   line-height: 1.05;
   letter-spacing: 0;
 }
 
 .dashboard-hero p {
   max-width: 44rem;
-  margin: 0.55rem 0 0;
+  margin: 0.42rem 0 0;
 }
 
 .hero-actions {
@@ -646,25 +661,36 @@ a {
 
 .section-stack {
   display: grid;
-  gap: 1rem;
+  gap: 1.15rem;
 }
 
 .service-section {
   display: grid;
-  gap: 0.65rem;
+  gap: 0.72rem;
 }
 
 .service-section h3 {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   margin: 0;
-  color: var(--ink-800);
-  font-size: 1rem;
+  color: var(--green-900);
+  font-size: 1.02rem;
   font-weight: 820;
+}
+
+.service-section h3::before {
+  content: "";
+  width: 0.28rem;
+  height: 1.15rem;
+  border-radius: 2px;
+  background: var(--green-800);
 }
 
 .service-grid,
 .subject-grid {
   display: grid;
-  gap: 0.65rem;
+  gap: 0.72rem;
 }
 
 .service-grid {
@@ -679,15 +705,15 @@ a {
 .subject-card {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: 0.75rem;
+  gap: 0.82rem;
   align-items: center;
-  min-height: 4.75rem;
-  padding: 0.72rem 0.8rem;
+  min-height: 4.55rem;
+  padding: 0.74rem 0.82rem;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--surface-raised);
+  background: linear-gradient(180deg, var(--surface-raised), color-mix(in srgb, var(--surface-raised) 92%, var(--mint-100)));
   text-decoration: none;
-  box-shadow: 0 10px 26px rgba(0, 63, 45, 0.06);
+  box-shadow: inset 3px 0 0 transparent, 0 1px 2px rgba(0, 55, 38, 0.06);
   transition: transform 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
 }
 
@@ -697,7 +723,7 @@ a {
 .subject-card:focus-visible {
   transform: translateY(-2px);
   border-color: color-mix(in srgb, var(--green-700) 45%, var(--line));
-  box-shadow: 0 16px 34px rgba(0, 63, 45, 0.13);
+  box-shadow: inset 3px 0 0 var(--green-800), 0 14px 30px rgba(0, 55, 38, 0.12);
   outline: none;
 }
 
@@ -720,7 +746,8 @@ a {
   height: 2.45rem;
   place-content: center;
   border-radius: var(--radius);
-  background: var(--mint-100);
+  border: 1px solid color-mix(in srgb, var(--green-800) 12%, var(--line));
+  background: color-mix(in srgb, var(--mint-100) 86%, var(--surface));
   color: var(--green-800);
 }
 
@@ -785,6 +812,18 @@ a {
   color: var(--ink-600);
   font-size: 0.8rem;
   font-weight: 720;
+}
+
+.service-card .category-pill {
+  min-height: auto;
+  margin-top: 0.2rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink-600);
+  font-size: 0.84rem;
+  font-weight: 680;
 }
 
 .card-action {
@@ -854,6 +893,7 @@ a {
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem 1rem 0.8rem;
+  border-top: 4px solid var(--green-800);
   border-bottom: 1px solid var(--line);
 }
 

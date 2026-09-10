@@ -81,6 +81,18 @@
       }
     },
     {
+      id: "cloudprinting",
+      category: "campus",
+      icon: "printer",
+      url: "https://www.printservice.uni-muenchen.de/",
+      title: { de: "CloudPrinting", en: "CloudPrinting", zh: "CloudPrinting" },
+      description: {
+        de: "Drucken, Kopieren und Scannen an LMU-Standorten.",
+        en: "Printing, copying and scanning at LMU locations.",
+        zh: "LMU 校内打印、复印和扫描服务。"
+      }
+    },
+    {
       id: "ub",
       category: "campus",
       icon: "book",
@@ -138,6 +150,7 @@
     qissos: { de: "Verwaltung", en: "Records", zh: "管理" },
     account: { de: "Login", en: "Login", zh: "账号" },
     workspace: { de: "Infos", en: "Info", zh: "信息" },
+    cloudprinting: { de: "Drucken", en: "Printing", zh: "打印" },
     ub: { de: "Bibliothek", en: "Library", zh: "图书" },
     mensa: { de: "Essen", en: "Food", zh: "食堂" },
     lmu: { de: "Website", en: "Website", zh: "官网" },
@@ -272,7 +285,7 @@
       dashboardSubtitle: "Fast access to study, administration and campus links.",
       arrange: "Arrange",
       done: "Done",
-      subjects: "Meine Fächer",
+      subjects: "My subjects",
       subjectsHint: "Major, minor and additional subject cards.",
       addSubject: "Add subject",
       addSelectedSubject: "Add selected subject",
@@ -282,7 +295,7 @@
       profileTitle: "Profile",
       profileText: "Subjects and services can be changed anytime.",
       noSubjectChip: "No subject yet",
-      categories: { study: "Studium", student: "Studierendenservice", campus: "Campus" },
+      categories: { study: "Study", student: "Student Services", campus: "Campus" },
       roles: { major: "Major", minor: "Minor", extra: "Subject" },
       settingsTitle: "Customize dashboard",
       settingsText: "Language, theme, subjects, visible services and order.",
@@ -339,7 +352,7 @@
       dashboardSubtitle: "快速进入学习、学生事务和校园服务。",
       arrange: "排序",
       done: "完成",
-      subjects: "Meine Fächer",
+      subjects: "我的专业",
       subjectsHint: "Hauptfach、Nebenfach 和其他专业卡片。",
       addSubject: "添加专业",
       addSelectedSubject: "添加选中的专业",
@@ -349,7 +362,7 @@
       profileTitle: "个人配置",
       profileText: "专业和服务卡片都可以随时修改。",
       noSubjectChip: "还没有专业",
-      categories: { study: "Studium", student: "Studierendenservice", campus: "Campus" },
+      categories: { study: "学习", student: "学生事务", campus: "校园" },
       roles: { major: "Hauptfach", minor: "Nebenfach", extra: "专业" },
       settingsTitle: "自定义 Dashboard",
       settingsText: "语言、外观、专业、显示的服务和卡片顺序。",
@@ -397,6 +410,7 @@
     fileCheck: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/><path d="M14 3v5h5M8.5 14l2.2 2.2 4.8-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></svg>',
     user: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="3.3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M5 20c.8-3.5 3.2-5.2 7-5.2s6.2 1.7 7 5.2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/></svg>',
     workspace: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="6" width="16" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9 6V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1M4 12h16M9 15h6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/></svg>',
+    printer: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 8V3h10v5M7 17H5a2 2 0 0 1-2-2v-4a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v4a2 2 0 0 1-2 2h-2M7 14h10v7H7v-7Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/><path d="M17 11h.01M9 17h6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/></svg>',
     book: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 4.8A2.8 2.8 0 0 1 7.8 2H20v17H7.8A2.8 2.8 0 0 0 5 21.8V4.8Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/><path d="M5 19a2.8 2.8 0 0 1 2.8-2H20M9 6h6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/></svg>',
     utensils: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 3v8M4.5 3v5.5A2.5 2.5 0 0 0 7 11a2.5 2.5 0 0 0 2.5-2.5V3M7 11v10M16 3c2.4 1.7 3.5 4 3.5 7.2 0 2.2-.8 3.7-2.4 4.6V21" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/></svg>',
     building: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6M8 11h.01M12 11h.01M16 11h.01" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></svg>',
@@ -504,6 +518,10 @@
   function localize(value) {
     if (typeof value === "string") return value;
     return value[settings.language] || value.de || value.en || "";
+  }
+
+  function serviceTitle(service) {
+    return service.title.de || localize(service.title);
   }
 
   function icon(name) {
@@ -716,7 +734,7 @@
   }
 
   function renderServiceCard(service) {
-    const title = localize(service.title);
+    const title = serviceTitle(service);
     const tag = localize(SERVICE_TAGS[service.id] || { de: "", en: "", zh: "" });
     return `
       <a class="service-card" href="${escapeAttr(service.url)}" target="_blank" rel="noopener noreferrer">
@@ -826,12 +844,13 @@
 
   function renderServiceControl(service) {
     const checked = !settings.hiddenServiceIds.includes(service.id);
+    const title = serviceTitle(service);
     return `
       <div class="service-control" draggable="true" data-drag-service="${escapeAttr(service.id)}">
-        <input type="checkbox" data-toggle-service="${escapeAttr(service.id)}" ${checked ? "checked" : ""} aria-label="${escapeAttr(localize(service.title))}">
+        <input type="checkbox" data-toggle-service="${escapeAttr(service.id)}" ${checked ? "checked" : ""} aria-label="${escapeAttr(title)}">
         <span class="icon-wrap">${icon(service.icon)}</span>
         <span>
-          <strong>${escapeHtml(localize(service.title))}</strong>
+          <strong>${escapeHtml(title)}</strong>
           <span>${escapeHtml(t(`categories.${service.category}`))}</span>
         </span>
         <span class="service-control-actions">
