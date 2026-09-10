@@ -1,4 +1,4 @@
-LMU Dashboard V13
+LMU Dashboard V14
 Unofficial customizable dashboard for LMU students
 
 重要定位
@@ -9,7 +9,7 @@ Unofficial customizable dashboard for LMU students
 文件结构
 上传到 GitHub Pages 仓库根目录时，请保留这个结构：
 
-lmu-dashboard-v13/
+lmu-dashboard-v14/
   index.html
   app.css
   app.js
@@ -53,15 +53,21 @@ lmu-dashboard-v13/
       maskable-512.png
   README.txt
 
-从 V12 更新到 V13
+从 V13 更新到 V14
 1. 解压 ZIP。
-2. 打开解压后的 lmu-dashboard-v13 文件夹。
+2. 打开解压后的 lmu-dashboard-v14 文件夹。
 3. 把里面的 index.html、app.css、app.js、manifest.webmanifest、sw.js 和 assets 文件夹一起上传到 GitHub 仓库根目录。
 4. 如果仓库里已有旧版 index.html、manifest.webmanifest、sw.js，请用新版替换。
 5. GitHub Pages 设置继续保持：
    Source: Deploy from a branch
    Branch: main
    Folder: /(root)
+
+V14 更新重点
+- 修正 iPhone 添加到主屏幕后顶部栏和状态栏/灵动岛重叠的问题。
+- 顶部栏加入 iPhone 安全区域距离，Logo 和设置按钮会自动往下避开。
+- 小屏幕上设置按钮只显示齿轮图标，保留可点击范围，避免顶部过挤。
+- PWA 状态栏不再使用透明覆盖模式。
 
 V13 更新重点
 - 修正黑夜模式下主页背景发灰、层次不自然的问题。
