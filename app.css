@@ -117,17 +117,6 @@ a {
   backdrop-filter: blur(14px);
 }
 
-.topbar::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: -1px;
-  left: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--green-800), var(--green-700) 72%, var(--blue-600));
-  pointer-events: none;
-}
-
 .brand {
   display: inline-flex;
   align-items: center;
@@ -599,7 +588,7 @@ a {
 
 .dashboard-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1rem;
   align-items: center;
   padding: 0.15rem 0 clamp(0.95rem, 2.6vw, 1.2rem);
@@ -620,14 +609,6 @@ a {
 .dashboard-hero p {
   max-width: 44rem;
   margin: 0.42rem 0 0;
-}
-
-.hero-actions {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  gap: 0.55rem;
 }
 
 .dashboard-hero .profile-chips {
@@ -1110,18 +1091,8 @@ a {
     align-items: start;
   }
 
-  .hero-actions,
   .section-heading {
     align-items: stretch;
-  }
-
-  .hero-actions {
-    justify-content: stretch;
-  }
-
-  .hero-actions button,
-  .hero-actions .secondary-button {
-    flex: 1 1 auto;
   }
 
   .service-grid,

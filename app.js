@@ -667,12 +667,6 @@
               <h2>${escapeHtml(t("dashboardTitle"))}</h2>
               <p class="section-copy">${escapeHtml(t("dashboardSubtitle"))}</p>
             </div>
-            <div class="hero-actions">
-              <button type="button" class="secondary-button" data-open-settings>
-                ${icon("settings")}
-                <span>${escapeHtml(t("settings"))}</span>
-              </button>
-            </div>
           </div>
 
           <section aria-label="Dashboard">
