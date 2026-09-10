@@ -54,8 +54,7 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
-    linear-gradient(135deg, rgba(0, 88, 61, 0.08), transparent 34rem),
-    radial-gradient(circle at top right, rgba(37, 99, 235, 0.10), transparent 30rem),
+    linear-gradient(180deg, rgba(0, 88, 61, 0.08), transparent 18rem),
     var(--surface-soft);
   color: var(--ink-950);
 }
@@ -110,8 +109,8 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  min-height: 4.5rem;
-  padding: 0.75rem clamp(1rem, 3vw, 2rem);
+  min-height: 4.25rem;
+  padding: 0.65rem clamp(1rem, 3vw, 2rem);
   border-bottom: 1px solid var(--line);
   background: color-mix(in srgb, var(--surface) 90%, transparent);
   backdrop-filter: blur(16px);
@@ -124,17 +123,11 @@ a {
   gap: 0.8rem;
 }
 
-.brand-mark {
-  display: grid;
-  width: 2.55rem;
-  height: 2.55rem;
+.lmu-logo {
+  display: block;
+  width: clamp(7.8rem, 20vw, 9.9rem);
+  height: auto;
   flex: 0 0 auto;
-  place-content: center;
-  border-radius: var(--radius);
-  background: var(--green-800);
-  color: white;
-  font-weight: 780;
-  box-shadow: 0 10px 24px rgba(0, 88, 61, 0.22);
 }
 
 .brand-copy {
@@ -150,7 +143,7 @@ a {
 
 .brand h1 {
   margin: 0;
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
   line-height: 1.1;
 }
 
@@ -545,6 +538,10 @@ a {
   align-items: start;
 }
 
+.dashboard-page {
+  display: block;
+}
+
 .side-panel {
   position: sticky;
   top: 5.5rem;
@@ -582,23 +579,26 @@ a {
 
 .content-stack {
   display: grid;
-  gap: 1.5rem;
+  gap: clamp(1.1rem, 2.4vw, 1.6rem);
 }
 
 .dashboard-hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 1rem;
-  align-items: end;
-  padding-bottom: 1.1rem;
+  align-items: center;
+  padding: clamp(1rem, 3vw, 1.35rem);
   border-bottom: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-raised);
+  box-shadow: 0 14px 38px rgba(0, 63, 45, 0.08);
 }
 
 .dashboard-hero h2 {
   margin: 0;
   color: var(--green-900);
-  font-size: clamp(2rem, 6vw, 3.8rem);
-  line-height: 0.98;
+  font-size: clamp(1.45rem, 4vw, 2.45rem);
+  line-height: 1.05;
   letter-spacing: 0;
 }
 
@@ -613,6 +613,10 @@ a {
   justify-content: flex-end;
   flex-wrap: wrap;
   gap: 0.55rem;
+}
+
+.dashboard-hero .profile-chips {
+  margin-top: 0.75rem;
 }
 
 .section-heading {
@@ -632,10 +636,27 @@ a {
   font-size: 0.92rem;
 }
 
+.section-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.service-section {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.service-section h3 {
+  margin: 0;
+  color: var(--ink-800);
+  font-size: 0.95rem;
+  font-weight: 820;
+}
+
 .service-grid,
 .subject-grid {
   display: grid;
-  gap: 0.75rem;
+  gap: 0.65rem;
 }
 
 .service-grid {
@@ -650,10 +671,10 @@ a {
 .subject-card {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: 0.8rem;
+  gap: 0.75rem;
   align-items: center;
-  min-height: 7rem;
-  padding: 0.9rem;
+  min-height: 4.75rem;
+  padding: 0.72rem 0.8rem;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface-raised);
@@ -687,8 +708,8 @@ a {
 
 .icon-wrap {
   display: grid;
-  width: 2.7rem;
-  height: 2.7rem;
+  width: 2.45rem;
+  height: 2.45rem;
   place-content: center;
   border-radius: var(--radius);
   background: var(--mint-100);
@@ -721,6 +742,7 @@ a {
 .subject-card strong {
   display: block;
   font-size: 1rem;
+  line-height: 1.22;
 }
 
 .service-card p,
@@ -743,8 +765,18 @@ a {
 }
 
 .category-pill {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 1.5rem;
+  margin-top: 0.35rem;
+  padding: 0.05rem 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
   background: transparent;
   color: var(--ink-600);
+  font-size: 0.78rem;
+  font-weight: 720;
 }
 
 .card-action {

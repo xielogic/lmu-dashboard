@@ -5,6 +5,7 @@
   const STORAGE_VERSION = 2;
   const LANGUAGES = ["de", "en", "zh"];
   const THEMES = ["system", "light", "dark"];
+  const CATEGORY_ORDER = ["study", "student", "campus"];
 
   const SERVICES = [
     {
@@ -193,7 +194,7 @@
       arrange: "Sortieren",
       done: "Fertig",
       quickAccess: "Schnellzugriff",
-      servicesHint: "Ziehe Karten im Sortiermodus an die gewünschte Position.",
+      servicesHint: "Nach Bereichen gruppiert. Sichtbarkeit und Reihenfolge findest du in den Einstellungen.",
       servicesCount: "Dienste",
       hiddenServices: "ausgeblendet",
       subjects: "Meine Fächer",
@@ -264,7 +265,7 @@
       arrange: "Arrange",
       done: "Done",
       quickAccess: "Quick access",
-      servicesHint: "Drag cards while arranging to change their position.",
+      servicesHint: "Grouped by area. Visibility and order are managed in settings.",
       servicesCount: "services",
       hiddenServices: "hidden",
       subjects: "My subjects",
@@ -335,7 +336,7 @@
       arrange: "排序",
       done: "完成",
       quickAccess: "常用入口",
-      servicesHint: "开启排序后拖动卡片即可调整位置。",
+      servicesHint: "按板块分组显示。显示状态和顺序可以在设置里调整。",
       servicesCount: "个服务",
       hiddenServices: "已隐藏",
       subjects: "我的专业",
@@ -563,7 +564,7 @@
     const themeIcon = settings.theme === "dark" ? "moon" : settings.theme === "light" ? "sun" : "monitor";
     topbar.innerHTML = `
       <div class="brand" aria-label="LMU Dashboard">
-        <div class="brand-mark">LMU</div>
+        <img class="lmu-logo" src="./assets/icons/lmu-header.svg" width="158" height="46" alt="LMU">
         <div class="brand-copy">
           <div class="brand-title-row">
             <h1>${escapeHtml(t("dashboardTitle"))}</h1>
@@ -644,36 +645,21 @@
     const visibleServices = orderedServices.filter((service) => !settings.hiddenServiceIds.includes(service.id));
     const hiddenCount = SERVICES.length - visibleServices.length;
     const subjects = getSelectedSubjects();
+    const serviceSections = CATEGORY_ORDER
+      .map((category) => renderServiceSection(category, visibleServices.filter((service) => service.category === category)))
+      .filter(Boolean)
+      .join("");
 
     app.innerHTML = `
-      <section class="dashboard-layout">
-        <aside class="side-panel">
-          <div class="profile-block">
-            <h2>${escapeHtml(t("profileTitle"))}</h2>
-            <p class="muted">${escapeHtml(t("profileText"))}</p>
-            <div class="profile-chips">${renderProfileChips(subjects)}</div>
-          </div>
-          <div class="quick-add">
-            ${renderDepartmentSearch("quick-add", t("addSubject"), null, true)}
-            <button type="button" class="secondary-button" data-add-subject-from="quick-add">
-              ${icon("plus")}
-              <span>${escapeHtml(t("addSelectedSubject"))}</span>
-            </button>
-          </div>
-          <p class="privacy-copy">${icon("shield")}<span>${escapeHtml(t("localOnly"))}</span></p>
-        </aside>
-
+      <section class="dashboard-page">
         <div class="content-stack">
           <div class="dashboard-hero">
             <div>
               <h2>${escapeHtml(t("dashboardTitle"))}</h2>
               <p class="section-copy">${escapeHtml(t("dashboardSubtitle"))}</p>
+              <div class="profile-chips">${renderProfileChips(subjects)}</div>
             </div>
             <div class="hero-actions">
-              <button type="button" class="${settings.editMode ? "primary-button" : "secondary-button"}" data-toggle-edit>
-                ${icon("grip")}
-                <span>${escapeHtml(settings.editMode ? t("done") : t("arrange"))}</span>
-              </button>
               <button type="button" class="secondary-button" data-open-settings>
                 ${icon("settings")}
                 <span>${escapeHtml(t("settings"))}</span>
@@ -689,7 +675,7 @@
               </div>
               <span class="badge">${visibleServices.length} ${escapeHtml(t("servicesCount"))}${hiddenCount ? ` · ${hiddenCount} ${escapeHtml(t("hiddenServices"))}` : ""}</span>
             </div>
-            ${visibleServices.length ? `<div class="service-grid">${visibleServices.map(renderServiceCard).join("")}</div>` : renderNoServices()}
+            ${visibleServices.length ? `<div class="section-stack">${serviceSections}</div>` : renderNoServices()}
           </section>
 
           <section aria-labelledby="subjectsHeading">
@@ -704,6 +690,16 @@
 
           <footer class="privacy-copy">${icon("shield")}<span>${escapeHtml(t("footerNote"))}</span></footer>
         </div>
+      </section>
+    `;
+  }
+
+  function renderServiceSection(category, services) {
+    if (!services.length) return "";
+    return `
+      <section class="service-section" aria-label="${escapeAttr(t(`categories.${category}`))}">
+        <h3>${escapeHtml(t(`categories.${category}`))}</h3>
+        <div class="service-grid">${services.map(renderServiceCard).join("")}</div>
       </section>
     `;
   }
@@ -741,33 +737,14 @@
 
   function renderServiceCard(service) {
     const title = localize(service.title);
-    const description = localize(service.description);
     const category = t(`categories.${service.category}`);
-    const body = `
-      <span class="icon-wrap">${icon(service.icon)}</span>
-      <span class="service-card-content">
-        <strong>${escapeHtml(title)}</strong>
-        <p>${escapeHtml(description)}</p>
-        <span class="card-meta"><span class="category-pill">${escapeHtml(category)}</span></span>
-      </span>
-    `;
-
-    if (settings.editMode) {
-      return `
-        <article class="service-card is-editing" draggable="true" data-drag-service="${escapeAttr(service.id)}" tabindex="0">
-          ${body}
-          <span class="edit-card-actions">
-            <button type="button" class="drag-button" data-move-service="${escapeAttr(service.id)}" data-direction="-1" aria-label="${escapeAttr(t("moveUp"))}">${icon("up")}</button>
-            <button type="button" class="drag-button" data-move-service="${escapeAttr(service.id)}" data-direction="1" aria-label="${escapeAttr(t("moveDown"))}">${icon("down")}</button>
-            <button type="button" class="drag-button" data-hide-service="${escapeAttr(service.id)}" aria-label="${escapeAttr(t("hide"))}">${icon("eyeOff")}</button>
-          </span>
-        </article>
-      `;
-    }
-
     return `
       <a class="service-card" href="${escapeAttr(service.url)}" target="_blank" rel="noopener noreferrer">
-        ${body}
+        <span class="icon-wrap">${icon(service.icon)}</span>
+        <span class="service-card-content">
+          <strong>${escapeHtml(title)}</strong>
+          <span class="category-pill">${escapeHtml(category)}</span>
+        </span>
         <span class="card-action">${icon("external")}<span class="sr-only">${escapeHtml(t("open"))}</span></span>
       </a>
     `;
@@ -779,8 +756,7 @@
         <span class="icon-wrap">${icon("bookmark")}</span>
         <span class="subject-card-content">
           <strong>${escapeHtml(entry.department.name)}</strong>
-          <p>${escapeHtml(entry.department.group)}</p>
-          <span class="card-meta"><span class="category-pill">${escapeHtml(t(`roles.${entry.role}`))}</span></span>
+          <span class="category-pill">${escapeHtml(t(`roles.${entry.role}`))}</span>
         </span>
         <span class="card-action">${icon("external")}<span class="sr-only">${escapeHtml(t("open"))}</span></span>
       </a>

@@ -1,4 +1,4 @@
-LMU Dashboard V2
+LMU Dashboard V3
 Unofficial customizable dashboard for LMU students
 
 重要定位
@@ -9,7 +9,7 @@ Unofficial customizable dashboard for LMU students
 文件结构
 上传到 GitHub Pages 仓库根目录时，请保留这个结构：
 
-lmu-dashboard-v2/
+lmu-dashboard-v3/
   index.html
   app.css
   app.js
@@ -18,15 +18,16 @@ lmu-dashboard-v2/
   assets/
     icons/
       app-icon.svg
+      lmu-header.svg
       apple-touch-icon.png
       icon-192.png
       icon-512.png
       maskable-512.png
   README.txt
 
-从 V1 更新到 V2
+从 V2 更新到 V3
 1. 解压 ZIP。
-2. 打开解压后的 lmu-dashboard-v2 文件夹。
+2. 打开解压后的 lmu-dashboard-v3 文件夹。
 3. 把里面的 index.html、app.css、app.js、manifest.webmanifest、sw.js 和 assets 文件夹一起上传到 GitHub 仓库根目录。
 4. 如果仓库里已有旧版 index.html、manifest.webmanifest、sw.js，请用新版替换。
 5. GitHub Pages 设置继续保持：
@@ -39,6 +40,13 @@ lmu-dashboard-v2/
 - 用户需要搜索并选择 Hauptfach，可选 Nebenfach。
 - 系统不会默认显示某个用户的专业。
 - 用户可以之后继续添加专业、隐藏服务、调整卡片顺序、切换语言和外观。
+
+V3 更新重点
+- 首次配置完成后，主页不再显示“个人配置”侧栏。
+- 服务卡片恢复按板块分组：学习、学生事务、校园。
+- 主页卡片不再显示长描述，避免德语文字被省略号截断。
+- 隐藏、显示和排序服务统一放到设置里。
+- 页眉加入更精致的 LMU 风格标识，并继续明确标注 Unofficial。
 
 iPhone 添加到主屏幕
 1. 等 GitHub Pages 部署完成后，用 iPhone Safari 打开网站。
