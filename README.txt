@@ -1,4 +1,4 @@
-LMU Dashboard V11
+LMU Dashboard V12
 Unofficial customizable dashboard for LMU students
 
 重要定位
@@ -9,7 +9,7 @@ Unofficial customizable dashboard for LMU students
 文件结构
 上传到 GitHub Pages 仓库根目录时，请保留这个结构：
 
-lmu-dashboard-v11/
+lmu-dashboard-v12/
   index.html
   app.css
   app.js
@@ -53,9 +53,9 @@ lmu-dashboard-v11/
       maskable-512.png
   README.txt
 
-从 V10 更新到 V11
+从 V11 更新到 V12
 1. 解压 ZIP。
-2. 打开解压后的 lmu-dashboard-v11 文件夹。
+2. 打开解压后的 lmu-dashboard-v12 文件夹。
 3. 把里面的 index.html、app.css、app.js、manifest.webmanifest、sw.js 和 assets 文件夹一起上传到 GitHub 仓库根目录。
 4. 如果仓库里已有旧版 index.html、manifest.webmanifest、sw.js，请用新版替换。
 5. GitHub Pages 设置继续保持：
@@ -68,6 +68,10 @@ lmu-dashboard-v11/
 - 用户需要搜索并选择 Hauptfach，可选 Nebenfach。
 - 系统不会默认显示某个用户的专业。
 - 用户可以之后继续添加专业、隐藏服务、调整卡片顺序、切换语言和外观。
+
+V12 更新重点
+- 校园分组新增 ZHS，链接到 https://kurse.zhs-muenchen.de/de。
+- ZHS 卡片使用运动图标，短标签为 Sport / 运动。
 
 V11 更新重点
 - favicon 和 PWA 图标改为官方 Logo 左侧的单个 LMU 方块。

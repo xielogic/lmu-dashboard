@@ -117,6 +117,18 @@
       }
     },
     {
+      id: "zhs",
+      category: "campus",
+      icon: "sport",
+      url: "https://kurse.zhs-muenchen.de/de",
+      title: { de: "ZHS", en: "ZHS", zh: "ZHS" },
+      description: {
+        de: "Hochschulsport München, Kurse und Anmeldung.",
+        en: "University sports in Munich, courses and registration.",
+        zh: "慕尼黑高校体育课程和报名入口。"
+      }
+    },
+    {
       id: "lmu",
       category: "campus",
       icon: "building",
@@ -153,6 +165,7 @@
     cloudprinting: { de: "Drucken", en: "Printing", zh: "打印" },
     ub: { de: "Bibliothek", en: "Library", zh: "图书" },
     mensa: { de: "Essen", en: "Food", zh: "食堂" },
+    zhs: { de: "Sport", en: "Sport", zh: "运动" },
     lmu: { de: "Website", en: "Website", zh: "官网" },
     it: { de: "Support", en: "Support", zh: "支持" }
   };
@@ -413,6 +426,7 @@
     printer: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 8V3h10v5M7 17H5a2 2 0 0 1-2-2v-4a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v4a2 2 0 0 1-2 2h-2M7 14h10v7H7v-7Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/><path d="M17 11h.01M9 17h6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/></svg>',
     book: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 4.8A2.8 2.8 0 0 1 7.8 2H20v17H7.8A2.8 2.8 0 0 0 5 21.8V4.8Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/><path d="M5 19a2.8 2.8 0 0 1 2.8-2H20M9 6h6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/></svg>',
     utensils: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 3v8M4.5 3v5.5A2.5 2.5 0 0 0 7 11a2.5 2.5 0 0 0 2.5-2.5V3M7 11v10M16 3c2.4 1.7 3.5 4 3.5 7.2 0 2.2-.8 3.7-2.4 4.6V21" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/></svg>',
+    sport: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="7" cy="17" r="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="17" r="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9 17h3.2l2.1-5.6M14.3 11.4l1.9 2.2H19M11.8 9.5l1.7-1.5 2.3 1.4M10.2 11.2l-2.4 2.4H5M16.4 5.3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></svg>',
     building: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6M8 11h.01M12 11h.01M16 11h.01" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></svg>',
     headset: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 13a8 8 0 0 1 16 0v3a2 2 0 0 1-2 2h-2v-6h4M4 16a2 2 0 0 0 2 2h2v-6H4v4ZM16 18c0 1.7-1.3 3-3 3h-2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></svg>',
     bookmark: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 4.5A2.5 2.5 0 0 1 8.5 2h7A2.5 2.5 0 0 1 18 4.5V21l-6-3.8L6 21V4.5Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/></svg>',
