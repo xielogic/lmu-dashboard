@@ -1,4 +1,4 @@
-LMU Dashboard V9
+LMU Dashboard V11
 Unofficial customizable dashboard for LMU students
 
 重要定位
@@ -9,7 +9,7 @@ Unofficial customizable dashboard for LMU students
 文件结构
 上传到 GitHub Pages 仓库根目录时，请保留这个结构：
 
-lmu-dashboard-v9/
+lmu-dashboard-v11/
   index.html
   app.css
   app.js
@@ -30,6 +30,22 @@ lmu-dashboard-v9/
       lmu-icon-512-v9.png
       lmu-maskable-512-v9.png
       lmu-apple-touch-icon-v9.png
+      lmu-app-icon-v10.svg
+      lmu-favicon-v10.svg
+      lmu-favicon-16-v10.png
+      lmu-favicon-32-v10.png
+      lmu-icon-192-v10.png
+      lmu-icon-512-v10.png
+      lmu-maskable-512-v10.png
+      lmu-apple-touch-icon-v10.png
+      lmu-app-icon-v11.svg
+      lmu-favicon-v11.svg
+      lmu-favicon-16-v11.png
+      lmu-favicon-32-v11.png
+      lmu-icon-192-v11.png
+      lmu-icon-512-v11.png
+      lmu-maskable-512-v11.png
+      lmu-apple-touch-icon-v11.png
       Logo_LMU.svg
       apple-touch-icon.png
       icon-192.png
@@ -37,9 +53,9 @@ lmu-dashboard-v9/
       maskable-512.png
   README.txt
 
-从 V8 更新到 V9
+从 V10 更新到 V11
 1. 解压 ZIP。
-2. 打开解压后的 lmu-dashboard-v9 文件夹。
+2. 打开解压后的 lmu-dashboard-v11 文件夹。
 3. 把里面的 index.html、app.css、app.js、manifest.webmanifest、sw.js 和 assets 文件夹一起上传到 GitHub 仓库根目录。
 4. 如果仓库里已有旧版 index.html、manifest.webmanifest、sw.js，请用新版替换。
 5. GitHub Pages 设置继续保持：
@@ -52,6 +68,16 @@ lmu-dashboard-v9/
 - 用户需要搜索并选择 Hauptfach，可选 Nebenfach。
 - 系统不会默认显示某个用户的专业。
 - 用户可以之后继续添加专业、隐藏服务、调整卡片顺序、切换语言和外观。
+
+V11 更新重点
+- favicon 和 PWA 图标改为官方 Logo 左侧的单个 LMU 方块。
+- 不再使用两个方块横版 Logo 作为 App 小图标。
+- 保留页眉里的完整 LMU 横版 Logo。
+
+V10 更新重点
+- 修正上一版 PWA 图标过于简化、看起来不像官方 Logo 的问题。
+- iPhone 主屏幕图标改为白底居中的完整 LMU 官方 Logo。
+- favicon 和 PWA 图标使用 V10 专用文件名，继续减少浏览器旧缓存影响。
 
 V9 更新重点
 - 为浏览器小图标使用全新的文件名，减少旧 favicon 缓存不更新的问题。
