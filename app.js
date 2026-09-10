@@ -131,6 +131,18 @@
   ];
 
   const SERVICE_IDS = SERVICES.map((service) => service.id);
+  const SERVICE_TAGS = {
+    lsf: { de: "Kurse", en: "Courses", zh: "课程" },
+    moodle: { de: "Material", en: "Materials", zh: "资料" },
+    mailbox: { de: "Mail", en: "Mail", zh: "邮箱" },
+    qissos: { de: "Nachweise", en: "Records", zh: "证明" },
+    account: { de: "Login", en: "Login", zh: "账号" },
+    workspace: { de: "Infos", en: "Info", zh: "信息" },
+    ub: { de: "Bibliothek", en: "Library", zh: "图书" },
+    mensa: { de: "Essen", en: "Food", zh: "食堂" },
+    lmu: { de: "Website", en: "Website", zh: "官网" },
+    it: { de: "Support", en: "Support", zh: "支持" }
+  };
 
   const DEPARTMENTS = [
     { id: "sociology", name: "Soziologie", url: "https://www.soziologie.lmu.de/de/", group: "Social Sciences", keywords: "sociology sozialwissenschaft gesellschaft ifs" },
@@ -564,14 +576,7 @@
     const themeIcon = settings.theme === "dark" ? "moon" : settings.theme === "light" ? "sun" : "monitor";
     topbar.innerHTML = `
       <div class="brand" aria-label="LMU Dashboard">
-        <img class="lmu-logo" src="./assets/icons/lmu-header.svg" width="158" height="46" alt="LMU">
-        <div class="brand-copy">
-          <div class="brand-title-row">
-            <h1>${escapeHtml(t("dashboardTitle"))}</h1>
-            <span class="badge">${escapeHtml(t("unofficial"))}</span>
-          </div>
-          <p>${escapeHtml(t("brandSubtitle"))}</p>
-        </div>
+        <img class="lmu-logo" src="./assets/icons/Logo_LMU.svg" width="362" height="171" alt="LMU">
       </div>
       <div class="top-actions">
         <div class="segmented" aria-label="${escapeAttr(t("language"))}">
@@ -597,7 +602,6 @@
       <section class="setup-shell">
         <div class="setup-copy">
           <div>
-            <span class="badge">${escapeHtml(t("unofficial"))}</span>
             <h2>${escapeHtml(t("setupTitle"))}</h2>
             <p>${escapeHtml(t("setupIntro"))}</p>
           </div>
@@ -644,7 +648,6 @@
     const orderedServices = getOrderedServices();
     const visibleServices = orderedServices.filter((service) => !settings.hiddenServiceIds.includes(service.id));
     const hiddenCount = SERVICES.length - visibleServices.length;
-    const subjects = getSelectedSubjects();
     const serviceSections = CATEGORY_ORDER
       .map((category) => renderServiceSection(category, visibleServices.filter((service) => service.category === category)))
       .filter(Boolean)
@@ -657,7 +660,6 @@
             <div>
               <h2>${escapeHtml(t("dashboardTitle"))}</h2>
               <p class="section-copy">${escapeHtml(t("dashboardSubtitle"))}</p>
-              <div class="profile-chips">${renderProfileChips(subjects)}</div>
             </div>
             <div class="hero-actions">
               <button type="button" class="secondary-button" data-open-settings>
@@ -676,16 +678,6 @@
               <span class="badge">${visibleServices.length} ${escapeHtml(t("servicesCount"))}${hiddenCount ? ` · ${hiddenCount} ${escapeHtml(t("hiddenServices"))}` : ""}</span>
             </div>
             ${visibleServices.length ? `<div class="section-stack">${serviceSections}</div>` : renderNoServices()}
-          </section>
-
-          <section aria-labelledby="subjectsHeading">
-            <div class="section-heading">
-              <div>
-                <h2 id="subjectsHeading">${escapeHtml(t("subjects"))}</h2>
-                <p class="section-copy">${escapeHtml(t("subjectsHint"))}</p>
-              </div>
-            </div>
-            ${subjects.length ? `<div class="subject-grid">${subjects.map(renderSubjectCard).join("")}</div>` : renderNoSubjects()}
           </section>
 
           <footer class="privacy-copy">${icon("shield")}<span>${escapeHtml(t("footerNote"))}</span></footer>
@@ -737,13 +729,13 @@
 
   function renderServiceCard(service) {
     const title = localize(service.title);
-    const category = t(`categories.${service.category}`);
+    const tag = localize(SERVICE_TAGS[service.id] || { de: "", en: "", zh: "" });
     return `
       <a class="service-card" href="${escapeAttr(service.url)}" target="_blank" rel="noopener noreferrer">
         <span class="icon-wrap">${icon(service.icon)}</span>
         <span class="service-card-content">
           <strong>${escapeHtml(title)}</strong>
-          <span class="category-pill">${escapeHtml(category)}</span>
+          <span class="category-pill">${escapeHtml(tag)}</span>
         </span>
         <span class="card-action">${icon("external")}<span class="sr-only">${escapeHtml(t("open"))}</span></span>
       </a>

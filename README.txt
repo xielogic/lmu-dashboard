@@ -1,4 +1,4 @@
-LMU Dashboard V3
+LMU Dashboard V4
 Unofficial customizable dashboard for LMU students
 
 重要定位
@@ -9,7 +9,7 @@ Unofficial customizable dashboard for LMU students
 文件结构
 上传到 GitHub Pages 仓库根目录时，请保留这个结构：
 
-lmu-dashboard-v3/
+lmu-dashboard-v4/
   index.html
   app.css
   app.js
@@ -18,16 +18,16 @@ lmu-dashboard-v3/
   assets/
     icons/
       app-icon.svg
-      lmu-header.svg
+      Logo_LMU.svg
       apple-touch-icon.png
       icon-192.png
       icon-512.png
       maskable-512.png
   README.txt
 
-从 V2 更新到 V3
+从 V3 更新到 V4
 1. 解压 ZIP。
-2. 打开解压后的 lmu-dashboard-v3 文件夹。
+2. 打开解压后的 lmu-dashboard-v4 文件夹。
 3. 把里面的 index.html、app.css、app.js、manifest.webmanifest、sw.js 和 assets 文件夹一起上传到 GitHub 仓库根目录。
 4. 如果仓库里已有旧版 index.html、manifest.webmanifest、sw.js，请用新版替换。
 5. GitHub Pages 设置继续保持：
@@ -40,6 +40,12 @@ lmu-dashboard-v3/
 - 用户需要搜索并选择 Hauptfach，可选 Nebenfach。
 - 系统不会默认显示某个用户的专业。
 - 用户可以之后继续添加专业、隐藏服务、调整卡片顺序、切换语言和外观。
+
+V4 更新重点
+- 页眉使用提供的官方 LMU Logo 文件。
+- 页眉不再显示介绍文字和 Unofficial 标签；非官方说明保留在页面底部。
+- 主页卡片小标签改为每个入口自己的极短说明，不再重复分组名。
+- 主页去掉“我的专业”区域，专业仍可在设置里修改。
 
 V3 更新重点
 - 首次配置完成后，主页不再显示“个人配置”侧栏。

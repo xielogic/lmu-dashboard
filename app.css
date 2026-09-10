@@ -109,8 +109,8 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  min-height: 4.25rem;
-  padding: 0.65rem clamp(1rem, 3vw, 2rem);
+  min-height: 4.9rem;
+  padding: 0.72rem clamp(1rem, 3vw, 2rem);
   border-bottom: 1px solid var(--line);
   background: color-mix(in srgb, var(--surface) 90%, transparent);
   backdrop-filter: blur(16px);
@@ -120,13 +120,13 @@ a {
   display: inline-flex;
   align-items: center;
   min-width: 0;
-  gap: 0.8rem;
+  gap: 0.9rem;
 }
 
 .lmu-logo {
   display: block;
-  width: clamp(7.8rem, 20vw, 9.9rem);
-  height: auto;
+  width: auto;
+  height: clamp(2.7rem, 6vw, 3.45rem);
   flex: 0 0 auto;
 }
 
@@ -587,7 +587,7 @@ a {
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 1rem;
   align-items: center;
-  padding: clamp(1rem, 3vw, 1.35rem);
+  padding: clamp(1rem, 3vw, 1.4rem);
   border-bottom: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface-raised);
@@ -597,7 +597,7 @@ a {
 .dashboard-hero h2 {
   margin: 0;
   color: var(--green-900);
-  font-size: clamp(1.45rem, 4vw, 2.45rem);
+  font-size: clamp(1.38rem, 3.4vw, 2.15rem);
   line-height: 1.05;
   letter-spacing: 0;
 }
@@ -633,7 +633,7 @@ a {
 
 .section-copy {
   margin: 0.25rem 0 0;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
 }
 
 .section-stack {
@@ -649,7 +649,7 @@ a {
 .service-section h3 {
   margin: 0;
   color: var(--ink-800);
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 820;
 }
 
@@ -770,12 +770,12 @@ a {
   width: fit-content;
   min-height: 1.5rem;
   margin-top: 0.35rem;
-  padding: 0.05rem 0.5rem;
+  padding: 0.05rem 0.52rem;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: transparent;
   color: var(--ink-600);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 720;
 }
 
@@ -1020,13 +1020,14 @@ a {
 
 @media (max-width: 720px) {
   .topbar {
-    align-items: flex-start;
-    flex-direction: column;
+    align-items: center;
+    flex-direction: row;
+    min-height: 4.4rem;
   }
 
   .top-actions {
-    width: 100%;
-    justify-content: space-between;
+    width: auto;
+    justify-content: flex-end;
   }
 
   .segmented {
@@ -1092,11 +1093,15 @@ a {
   }
 
   .brand {
-    width: 100%;
+    width: auto;
   }
 
-  .brand p {
-    font-size: 0.8rem;
+  .lmu-logo {
+    height: 2.55rem;
+  }
+
+  .top-actions .segmented {
+    display: none;
   }
 
   .service-control {
