@@ -1,4 +1,4 @@
-LMU Dashboard V6
+LMU Dashboard V9
 Unofficial customizable dashboard for LMU students
 
 重要定位
@@ -9,7 +9,7 @@ Unofficial customizable dashboard for LMU students
 文件结构
 上传到 GitHub Pages 仓库根目录时，请保留这个结构：
 
-lmu-dashboard-v6/
+lmu-dashboard-v9/
   index.html
   app.css
   app.js
@@ -18,6 +18,18 @@ lmu-dashboard-v6/
   assets/
     icons/
       app-icon.svg
+      favicon.svg
+      favicon-16.png
+      favicon-32.png
+      favicon.ico
+      lmu-app-icon-v9.svg
+      lmu-favicon-v9.svg
+      lmu-favicon-16-v9.png
+      lmu-favicon-32-v9.png
+      lmu-icon-192-v9.png
+      lmu-icon-512-v9.png
+      lmu-maskable-512-v9.png
+      lmu-apple-touch-icon-v9.png
       Logo_LMU.svg
       apple-touch-icon.png
       icon-192.png
@@ -25,9 +37,9 @@ lmu-dashboard-v6/
       maskable-512.png
   README.txt
 
-从 V5 更新到 V6
+从 V8 更新到 V9
 1. 解压 ZIP。
-2. 打开解压后的 lmu-dashboard-v6 文件夹。
+2. 打开解压后的 lmu-dashboard-v9 文件夹。
 3. 把里面的 index.html、app.css、app.js、manifest.webmanifest、sw.js 和 assets 文件夹一起上传到 GitHub 仓库根目录。
 4. 如果仓库里已有旧版 index.html、manifest.webmanifest、sw.js，请用新版替换。
 5. GitHub Pages 设置继续保持：
@@ -40,6 +52,20 @@ lmu-dashboard-v6/
 - 用户需要搜索并选择 Hauptfach，可选 Nebenfach。
 - 系统不会默认显示某个用户的专业。
 - 用户可以之后继续添加专业、隐藏服务、调整卡片顺序、切换语言和外观。
+
+V9 更新重点
+- 为浏览器小图标使用全新的文件名，减少旧 favicon 缓存不更新的问题。
+- 新增 favicon.ico 兜底文件，兼容会自动寻找传统图标的浏览器。
+- manifest 和启动图标也改用 V9 专用文件名。
+
+V8 更新重点
+- 语言切换按钮的选中颜色改为 LMU Logo 官方绿色 #00883A。
+- 浏览器 favicon 改为 LMU 方形标识。
+- PWA 和 iPhone 主屏幕图标改为 LMU 风格绿色图标。
+
+V7 更新重点
+- 去掉页眉下方的绿色/蓝色横线。
+- 去掉主页标题区域右侧重复的设置按钮，只保留页眉右上角的设置入口。
 
 V6 更新重点
 - 分组标题恢复随语言切换：德语、英语、中文分别显示对应语言。

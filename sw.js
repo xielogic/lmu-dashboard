@@ -1,19 +1,20 @@
-const CACHE_NAME = "lmu-dashboard-v8-2026-09-10";
+const CACHE_NAME = "lmu-dashboard-v9-2026-09-10";
 const APP_SHELL = [
   "./",
   "./index.html",
   "./app.css",
   "./app.js",
-  "./manifest.webmanifest",
+  "./manifest.webmanifest?v=9",
   "./assets/icons/Logo_LMU.svg",
-  "./assets/icons/app-icon.svg",
-  "./assets/icons/favicon.svg",
-  "./assets/icons/favicon-16.png",
-  "./assets/icons/favicon-32.png",
-  "./assets/icons/icon-192.png",
-  "./assets/icons/icon-512.png",
-  "./assets/icons/maskable-512.png",
-  "./assets/icons/apple-touch-icon.png"
+  "./assets/icons/lmu-app-icon-v9.svg",
+  "./assets/icons/lmu-favicon-v9.svg",
+  "./assets/icons/lmu-favicon-16-v9.png",
+  "./assets/icons/lmu-favicon-32-v9.png",
+  "./assets/icons/favicon.ico",
+  "./assets/icons/lmu-icon-192-v9.png",
+  "./assets/icons/lmu-icon-512-v9.png",
+  "./assets/icons/lmu-maskable-512-v9.png",
+  "./assets/icons/lmu-apple-touch-icon-v9.png"
 ];
 
 self.addEventListener("install", (event) => {

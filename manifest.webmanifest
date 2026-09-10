@@ -11,19 +11,19 @@
   "categories": ["education", "productivity"],
   "icons": [
     {
-      "src": "./assets/icons/icon-192.png",
+      "src": "./assets/icons/lmu-icon-192-v9.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "./assets/icons/icon-512.png",
+      "src": "./assets/icons/lmu-icon-512-v9.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "./assets/icons/maskable-512.png",
+      "src": "./assets/icons/lmu-maskable-512-v9.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
