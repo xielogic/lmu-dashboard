@@ -631,6 +631,14 @@ a {
   font-size: 1.08rem;
 }
 
+.compact-heading {
+  margin-bottom: 0.65rem;
+}
+
+.compact-heading h2 {
+  margin: 0;
+}
+
 .section-copy {
   margin: 0.25rem 0 0;
   font-size: 0.9rem;

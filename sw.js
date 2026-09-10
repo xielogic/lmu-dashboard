@@ -1,4 +1,4 @@
-const CACHE_NAME = "lmu-dashboard-v4-2026-09-10";
+const CACHE_NAME = "lmu-dashboard-v5-2026-09-10";
 const APP_SHELL = [
   "./",
   "./index.html",

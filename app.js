@@ -49,7 +49,7 @@
       category: "student",
       icon: "fileCheck",
       url: "https://qissos.verwaltung.uni-muenchen.de/qisserversos/rds?application=lsf&state=user&type=0",
-      title: { de: "QISSOS", en: "QISSOS", zh: "QISSOS" },
+      title: { de: "Studienverwaltung", en: "Studienverwaltung", zh: "Studienverwaltung" },
       description: {
         de: "Bescheinigungen, Beitragskonto und Selbstbedienung.",
         en: "Certificates, fee account and self-service functions.",
@@ -135,7 +135,7 @@
     lsf: { de: "Kurse", en: "Courses", zh: "课程" },
     moodle: { de: "Material", en: "Materials", zh: "资料" },
     mailbox: { de: "Mail", en: "Mail", zh: "邮箱" },
-    qissos: { de: "Nachweise", en: "Records", zh: "证明" },
+    qissos: { de: "Verwaltung", en: "Records", zh: "管理" },
     account: { de: "Login", en: "Login", zh: "账号" },
     workspace: { de: "Infos", en: "Info", zh: "信息" },
     ub: { de: "Bibliothek", en: "Library", zh: "图书" },
@@ -205,10 +205,6 @@
       dashboardSubtitle: "Schneller Zugriff auf Studium, Verwaltung und Campus-Links.",
       arrange: "Sortieren",
       done: "Fertig",
-      quickAccess: "Schnellzugriff",
-      servicesHint: "Nach Bereichen gruppiert. Sichtbarkeit und Reihenfolge findest du in den Einstellungen.",
-      servicesCount: "Dienste",
-      hiddenServices: "ausgeblendet",
       subjects: "Meine Fächer",
       subjectsHint: "Hauptfach, Nebenfach und weitere Fachkarten.",
       addSubject: "Fach hinzufügen",
@@ -219,7 +215,7 @@
       profileTitle: "Profil",
       profileText: "Fächer und Dienste lassen sich jederzeit ändern.",
       noSubjectChip: "Noch kein Fach",
-      categories: { study: "Studium", student: "Service", campus: "Campus" },
+      categories: { study: "Studium", student: "Studierendenservice", campus: "Campus" },
       roles: { major: "Hauptfach", minor: "Nebenfach", extra: "Fach" },
       settingsTitle: "Dashboard anpassen",
       settingsText: "Sprache, Darstellung, Fächer, sichtbare Dienste und Reihenfolge.",
@@ -276,11 +272,7 @@
       dashboardSubtitle: "Fast access to study, administration and campus links.",
       arrange: "Arrange",
       done: "Done",
-      quickAccess: "Quick access",
-      servicesHint: "Grouped by area. Visibility and order are managed in settings.",
-      servicesCount: "services",
-      hiddenServices: "hidden",
-      subjects: "My subjects",
+      subjects: "Meine Fächer",
       subjectsHint: "Major, minor and additional subject cards.",
       addSubject: "Add subject",
       addSelectedSubject: "Add selected subject",
@@ -290,7 +282,7 @@
       profileTitle: "Profile",
       profileText: "Subjects and services can be changed anytime.",
       noSubjectChip: "No subject yet",
-      categories: { study: "Study", student: "Service", campus: "Campus" },
+      categories: { study: "Studium", student: "Studierendenservice", campus: "Campus" },
       roles: { major: "Major", minor: "Minor", extra: "Subject" },
       settingsTitle: "Customize dashboard",
       settingsText: "Language, theme, subjects, visible services and order.",
@@ -347,11 +339,7 @@
       dashboardSubtitle: "快速进入学习、学生事务和校园服务。",
       arrange: "排序",
       done: "完成",
-      quickAccess: "常用入口",
-      servicesHint: "按板块分组显示。显示状态和顺序可以在设置里调整。",
-      servicesCount: "个服务",
-      hiddenServices: "已隐藏",
-      subjects: "我的专业",
+      subjects: "Meine Fächer",
       subjectsHint: "Hauptfach、Nebenfach 和其他专业卡片。",
       addSubject: "添加专业",
       addSelectedSubject: "添加选中的专业",
@@ -361,7 +349,7 @@
       profileTitle: "个人配置",
       profileText: "专业和服务卡片都可以随时修改。",
       noSubjectChip: "还没有专业",
-      categories: { study: "学习", student: "学生事务", campus: "校园" },
+      categories: { study: "Studium", student: "Studierendenservice", campus: "Campus" },
       roles: { major: "Hauptfach", minor: "Nebenfach", extra: "专业" },
       settingsTitle: "自定义 Dashboard",
       settingsText: "语言、外观、专业、显示的服务和卡片顺序。",
@@ -647,7 +635,7 @@
   function renderDashboard() {
     const orderedServices = getOrderedServices();
     const visibleServices = orderedServices.filter((service) => !settings.hiddenServiceIds.includes(service.id));
-    const hiddenCount = SERVICES.length - visibleServices.length;
+    const subjects = getSelectedSubjects();
     const serviceSections = CATEGORY_ORDER
       .map((category) => renderServiceSection(category, visibleServices.filter((service) => service.category === category)))
       .filter(Boolean)
@@ -669,15 +657,15 @@
             </div>
           </div>
 
-          <section aria-labelledby="servicesHeading">
-            <div class="section-heading">
-              <div>
-                <h2 id="servicesHeading">${escapeHtml(t("quickAccess"))}</h2>
-                <p class="section-copy">${escapeHtml(t("servicesHint"))}</p>
-              </div>
-              <span class="badge">${visibleServices.length} ${escapeHtml(t("servicesCount"))}${hiddenCount ? ` · ${hiddenCount} ${escapeHtml(t("hiddenServices"))}` : ""}</span>
-            </div>
+          <section aria-label="Dashboard">
             ${visibleServices.length ? `<div class="section-stack">${serviceSections}</div>` : renderNoServices()}
+          </section>
+
+          <section aria-labelledby="subjectsHeading">
+            <div class="section-heading compact-heading">
+              <h2 id="subjectsHeading">${escapeHtml(t("subjects"))}</h2>
+            </div>
+            ${subjects.length ? `<div class="subject-grid">${subjects.map(renderSubjectCard).join("")}</div>` : renderNoSubjects()}
           </section>
 
           <footer class="privacy-copy">${icon("shield")}<span>${escapeHtml(t("footerNote"))}</span></footer>
