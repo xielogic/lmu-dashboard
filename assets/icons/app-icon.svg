@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="LMU Dashboard icon">
+  <defs>
+    <linearGradient id="bg" x1="80" y1="60" x2="430" y2="455" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00734f"/>
+      <stop offset="0.62" stop-color="#00583d"/>
+      <stop offset="1" stop-color="#003f2d"/>
+    </linearGradient>
+    <linearGradient id="tile" x1="139" y1="118" x2="371" y2="382" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#dff4e8"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <path d="M110 154c0-31 25-56 56-56h180c31 0 56 25 56 56v204c0 31-25 56-56 56H166c-31 0-56-25-56-56V154Z" fill="url(#tile)" opacity="0.96"/>
+  <path d="M156 184h200M156 245h200M156 306h112" fill="none" stroke="#00583d" stroke-width="28" stroke-linecap="round"/>
+  <circle cx="166" cy="362" r="24" fill="#d99a21"/>
+  <circle cx="236" cy="362" r="24" fill="#2563eb"/>
+  <circle cx="306" cy="362" r="24" fill="#00583d"/>
+  <path d="M137 108 256 50l119 58" fill="none" stroke="#dff4e8" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+</svg>
