@@ -576,7 +576,7 @@
     const theme = effectiveTheme();
     document.documentElement.dataset.theme = theme;
     const themeMeta = document.querySelector('meta[name="theme-color"]');
-    if (themeMeta) themeMeta.setAttribute("content", theme === "dark" ? "#101512" : "#00883A");
+    if (themeMeta) themeMeta.setAttribute("content", theme === "dark" ? "#07100c" : "#00883A");
   }
 
   function renderShell() {

@@ -1,4 +1,4 @@
-LMU Dashboard V12
+LMU Dashboard V13
 Unofficial customizable dashboard for LMU students
 
 重要定位
@@ -9,7 +9,7 @@ Unofficial customizable dashboard for LMU students
 文件结构
 上传到 GitHub Pages 仓库根目录时，请保留这个结构：
 
-lmu-dashboard-v12/
+lmu-dashboard-v13/
   index.html
   app.css
   app.js
@@ -53,15 +53,20 @@ lmu-dashboard-v12/
       maskable-512.png
   README.txt
 
-从 V11 更新到 V12
+从 V12 更新到 V13
 1. 解压 ZIP。
-2. 打开解压后的 lmu-dashboard-v12 文件夹。
+2. 打开解压后的 lmu-dashboard-v13 文件夹。
 3. 把里面的 index.html、app.css、app.js、manifest.webmanifest、sw.js 和 assets 文件夹一起上传到 GitHub 仓库根目录。
 4. 如果仓库里已有旧版 index.html、manifest.webmanifest、sw.js，请用新版替换。
 5. GitHub Pages 设置继续保持：
    Source: Deploy from a branch
    Branch: main
    Folder: /(root)
+
+V13 更新重点
+- 修正黑夜模式下主页背景发灰、层次不自然的问题。
+- 重新调整暗色主题的页面背景、卡片、按钮、输入框和设置弹窗颜色。
+- CSS、JS、manifest 和 service worker 使用 V13 缓存标记，减少旧样式缓存影响。
 
 首次使用
 - 第一次打开会进入设置向导。

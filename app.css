@@ -23,21 +23,21 @@
 }
 
 :root[data-theme="dark"] {
-  --green-900: #dff4e8;
-  --green-800: #7be0ad;
-  --green-700: #58ca93;
-  --mint-100: rgba(88, 202, 147, 0.12);
-  --mint-200: rgba(123, 224, 173, 0.24);
-  --blue-600: #8db7ff;
-  --amber-500: #f0bf5c;
-  --ink-950: #f2f7f4;
-  --ink-800: #d7e1dc;
-  --ink-600: #9cabA4;
-  --line: rgba(223, 244, 232, 0.16);
-  --surface: #101512;
-  --surface-soft: #0b1110;
-  --surface-raised: #151d1a;
-  --shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+  --green-900: #dff6e8;
+  --green-800: #67d79a;
+  --green-700: #3fc77d;
+  --mint-100: rgba(103, 215, 154, 0.12);
+  --mint-200: rgba(103, 215, 154, 0.24);
+  --blue-600: #78aee8;
+  --amber-500: #e8bd5f;
+  --ink-950: #f3faf6;
+  --ink-800: #d8e6de;
+  --ink-600: #a9bbb2;
+  --line: rgba(179, 219, 197, 0.18);
+  --surface: #0b1510;
+  --surface-soft: #07100c;
+  --surface-raised: #111f18;
+  --shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
   color-scheme: dark;
 }
 
@@ -57,6 +57,12 @@ body {
     linear-gradient(180deg, rgba(0, 88, 61, 0.07), rgba(255, 255, 255, 0.92) 18rem, var(--surface-soft)),
     var(--surface-soft);
   color: var(--ink-950);
+}
+
+:root[data-theme="dark"] body {
+  background:
+    linear-gradient(180deg, rgba(0, 136, 58, 0.14), rgba(7, 16, 12, 0.98) 15rem, var(--surface-soft)),
+    var(--surface-soft);
 }
 
 button,
@@ -115,6 +121,11 @@ a {
   background: color-mix(in srgb, var(--surface) 94%, transparent);
   box-shadow: 0 1px 0 var(--line), 0 10px 28px rgba(0, 55, 38, 0.05);
   backdrop-filter: blur(14px);
+}
+
+:root[data-theme="dark"] .topbar {
+  background: rgba(10, 19, 15, 0.94);
+  box-shadow: 0 1px 0 var(--line), 0 12px 28px rgba(0, 0, 0, 0.22);
 }
 
 .brand {
@@ -184,6 +195,10 @@ a {
   background: var(--surface-raised);
 }
 
+:root[data-theme="dark"] .segmented {
+  background: rgba(8, 17, 13, 0.9);
+}
+
 .segmented button,
 .icon-button,
 .text-button,
@@ -225,6 +240,11 @@ a {
   box-shadow: 0 1px 2px rgba(0, 55, 38, 0.05);
 }
 
+:root[data-theme="dark"] .icon-button {
+  background: rgba(16, 31, 24, 0.94);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
 .text-button,
 .secondary-button,
 .ghost-button {
@@ -238,6 +258,12 @@ a {
   border-color: var(--line);
   background: var(--surface-raised);
   box-shadow: 0 1px 2px rgba(0, 55, 38, 0.05);
+}
+
+:root[data-theme="dark"] .text-button,
+:root[data-theme="dark"] .secondary-button {
+  background: rgba(16, 31, 24, 0.94);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .ghost-button {
@@ -297,6 +323,15 @@ a {
   box-shadow: 0 10px 26px rgba(0, 55, 38, 0.07);
 }
 
+:root[data-theme="dark"] .setup-copy,
+:root[data-theme="dark"] .setup-panel,
+:root[data-theme="dark"] .side-panel,
+:root[data-theme="dark"] .empty-state,
+:root[data-theme="dark"] .settings-section {
+  background: rgba(14, 28, 21, 0.92);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.26);
+}
+
 .setup-copy {
   display: flex;
   min-height: 32rem;
@@ -343,6 +378,10 @@ a {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface);
+}
+
+:root[data-theme="dark"] .status-tile {
+  background: rgba(9, 19, 14, 0.72);
 }
 
 .status-tile strong {
@@ -428,6 +467,11 @@ a {
   color: var(--ink-950);
   padding: 0 0.9rem;
   outline: none;
+}
+
+:root[data-theme="dark"] .combo input,
+:root[data-theme="dark"] .settings-dialog select {
+  background: rgba(8, 17, 13, 0.9);
 }
 
 .combo input:focus,
@@ -698,6 +742,14 @@ a {
   transition: transform 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
 }
 
+:root[data-theme="dark"] .service-card,
+:root[data-theme="dark"] .subject-card {
+  background:
+    linear-gradient(180deg, rgba(18, 35, 27, 0.98), rgba(10, 23, 17, 0.98));
+  border-color: rgba(166, 218, 190, 0.2);
+  box-shadow: inset 3px 0 0 transparent, 0 10px 24px rgba(0, 0, 0, 0.24);
+}
+
 .service-card:hover,
 .subject-card:hover,
 .service-card:focus-visible,
@@ -706,6 +758,14 @@ a {
   border-color: color-mix(in srgb, var(--green-700) 45%, var(--line));
   box-shadow: inset 3px 0 0 var(--green-800), 0 14px 30px rgba(0, 55, 38, 0.12);
   outline: none;
+}
+
+:root[data-theme="dark"] .service-card:hover,
+:root[data-theme="dark"] .subject-card:hover,
+:root[data-theme="dark"] .service-card:focus-visible,
+:root[data-theme="dark"] .subject-card:focus-visible {
+  border-color: rgba(103, 215, 154, 0.46);
+  box-shadow: inset 3px 0 0 var(--green-800), 0 16px 34px rgba(0, 0, 0, 0.32);
 }
 
 .service-card.is-editing {
@@ -730,6 +790,11 @@ a {
   border: 1px solid color-mix(in srgb, var(--green-800) 12%, var(--line));
   background: color-mix(in srgb, var(--mint-100) 86%, var(--surface));
   color: var(--green-800);
+}
+
+:root[data-theme="dark"] .icon-wrap {
+  background: rgba(103, 215, 154, 0.12);
+  border-color: rgba(103, 215, 154, 0.26);
 }
 
 .icon-wrap svg,
@@ -795,6 +860,10 @@ a {
   font-weight: 720;
 }
 
+:root[data-theme="dark"] .category-pill {
+  color: var(--ink-800);
+}
+
 .service-card .category-pill {
   min-height: auto;
   margin-top: 0.2rem;
@@ -832,6 +901,10 @@ a {
   color: var(--ink-800);
 }
 
+:root[data-theme="dark"] .drag-button {
+  background: rgba(16, 31, 24, 0.94);
+}
+
 .empty-state {
   padding: 1rem;
   box-shadow: none;
@@ -857,6 +930,11 @@ a {
   box-shadow: var(--shadow);
 }
 
+:root[data-theme="dark"] .settings-dialog {
+  background: #0a130f;
+  border-color: rgba(179, 219, 197, 0.22);
+}
+
 .settings-dialog::backdrop {
   background: rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(3px);
@@ -876,6 +954,10 @@ a {
   padding: 1rem 1rem 0.8rem;
   border-top: 4px solid var(--green-800);
   border-bottom: 1px solid var(--line);
+}
+
+:root[data-theme="dark"] .dialog-header {
+  background: rgba(16, 31, 24, 0.82);
 }
 
 .dialog-header h2 {
@@ -947,6 +1029,10 @@ a {
   background: var(--surface);
 }
 
+:root[data-theme="dark"] .service-control {
+  background: rgba(8, 17, 13, 0.8);
+}
+
 .service-control[draggable="true"] {
   cursor: grab;
 }
@@ -983,6 +1069,10 @@ a {
   border: 1px solid var(--line);
   border-radius: 999px;
   background: var(--surface);
+}
+
+:root[data-theme="dark"] .subject-token {
+  background: rgba(8, 17, 13, 0.8);
 }
 
 .subject-token button {
