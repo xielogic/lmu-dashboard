@@ -5,7 +5,7 @@
   const STORAGE_VERSION = 2;
   const LANGUAGES = ["de", "en", "zh"];
   const THEMES = ["system", "light", "dark"];
-  const CATEGORY_ORDER = ["study", "student", "library", "campus"];
+  const CATEGORY_ORDER = ["study", "student", "library", "campus", "info"];
 
   const SERVICES = [
     {
@@ -66,18 +66,6 @@
         de: "LMU-Benutzerkennung, Passwort und Kontoeinstellungen.",
         en: "LMU user ID, password and account settings.",
         zh: "LMU 用户名、密码和账户设置。"
-      }
-    },
-    {
-      id: "workspace",
-      category: "study",
-      icon: "workspace",
-      url: "https://www.lmu.de/de/workspace-fuer-studierende/",
-      title: { de: "Workspace", en: "Workspace", zh: "学生 Workspace" },
-      description: {
-        de: "Digitaler Arbeitsplatz für Informationen, Tools und Termine.",
-        en: "Digital student workspace for information, tools and dates.",
-        zh: "学生信息、工具和重要日期的数字工作区。"
       }
     },
     {
@@ -142,7 +130,7 @@
     },
     {
       id: "it",
-      category: "campus",
+      category: "student",
       icon: "headset",
       url: "https://www.lmu.de/de/die-lmu/struktur/zentrale-universitaetsverwaltung/it-services-division/it-servicedesk/",
       title: { de: "IT-Servicedesk", en: "IT Service Desk", zh: "IT 服务台" },
@@ -238,7 +226,7 @@
     },
     {
       id: "eduroam",
-      category: "campus",
+      category: "info",
       icon: "wifi",
       url: "https://www.lmu.de/de/die-lmu/struktur/zentrale-universitaetsverwaltung/it-services-division/it-servicedesk/zentrale-it-angebote/wlan-eduroam/",
       title: { de: "eduroam", en: "eduroam", zh: "eduroam" },
@@ -250,7 +238,7 @@
     },
     {
       id: "eduvpn",
-      category: "campus",
+      category: "info",
       icon: "shieldCheck",
       url: "https://www.lmu.de/de/die-lmu/struktur/zentrale-universitaetsverwaltung/it-services-division/it-servicedesk/zentrale-it-angebote/vpn-zugang-zum-muenchner-wissenschaftsnetz/",
       title: { de: "eduVPN", en: "eduVPN", zh: "eduVPN" },
@@ -262,7 +250,7 @@
     },
     {
       id: "vorlesungszeiten",
-      category: "study",
+      category: "info",
       icon: "calendar",
       url: "https://www.lmu.de/de/workspace-fuer-studierende/1x1-des-studiums/vorlesungszeiten/",
       title: { de: "Vorlesungszeiten", en: "Vorlesungszeiten", zh: "Vorlesungszeiten" },
@@ -273,44 +261,95 @@
       }
     },
     {
-      id: "sprachenzentrum",
-      category: "study",
-      icon: "languages",
-      url: "https://www.lmu.de/sprachenzentrum/de/",
-      title: { de: "Sprachenzentrum", en: "Sprachenzentrum", zh: "Sprachenzentrum" },
+      id: "rueckmeldung",
+      category: "info",
+      icon: "calendarCheck",
+      url: "https://www.lmu.de/de/workspace-fuer-studierende/1x1-des-studiums/rueckmeldung/",
+      title: { de: "Rückmeldung", en: "Rückmeldung", zh: "Rückmeldung" },
       description: {
-        de: "Sprachkurse, Einstufungstests und Sprachnachweise finden.",
-        en: "Find language courses, placement tests and language certificates.",
-        zh: "查找语言课程、分级测试和语言证明。"
+        de: "Fristen, Semesterbeiträge und Ablauf der Rückmeldung nachsehen.",
+        en: "Check re-enrollment deadlines, semester fees and procedures.",
+        zh: "查看下学期注册期限、学期费用和办理流程。"
+      }
+    },
+    {
+      id: "semesterticket",
+      category: "info",
+      icon: "trainFront",
+      url: "https://www.lmu.de/de/workspace-fuer-studierende/1x1-des-studiums/semesterticket/",
+      title: { de: "Semesterticket", en: "Semesterticket", zh: "Semesterticket" },
+      description: {
+        de: "Hinweise zum ausgesetzten Semesterticket und zu Ticketalternativen.",
+        en: "Information about the suspended semester ticket and alternatives.",
+        zh: "学期交通票暂停实施的说明及替代票种信息。"
+      }
+    },
+    {
+      id: "beratung",
+      category: "info",
+      icon: "messagesSquare",
+      url: "https://www.lmu.de/de/workspace-fuer-studierende/support-angebote/",
+      title: { de: "Beratung", en: "Beratung", zh: "Beratung" },
+      description: {
+        de: "Anlaufstellen für Studienfragen, soziale Anliegen und persönliche Unterstützung.",
+        en: "Find study advice, social support and personal counseling contacts.",
+        zh: "查找学业咨询、社会支持和个人心理辅导的联系入口。"
+      }
+    },
+    {
+      id: "studienfinanzierung",
+      category: "info",
+      icon: "banknote",
+      url: "https://www.lmu.de/de/workspace-fuer-studierende/support-angebote/studienfinanzierung/",
+      title: { de: "Studienfinanzierung", en: "Studienfinanzierung", zh: "Studienfinanzierung" },
+      description: {
+        de: "Informationen zu BAföG, Stipendien und weiteren Finanzierungsmöglichkeiten.",
+        en: "Information about BAföG, scholarships and other study funding options.",
+        zh: "查看 BAföG、奖学金和其他学习资助渠道。"
+      }
+    },
+    {
+      id: "wohnen",
+      category: "info",
+      icon: "house",
+      url: "https://www.lmu.de/de/workspace-fuer-studierende/studieren-und-leben/wohnen/",
+      title: { de: "Wohnen", en: "Wohnen", zh: "Wohnen" },
+      description: {
+        de: "Wohnheime, Zimmervermittlung und Tipps zur Wohnungssuche in München.",
+        en: "Student residences, room listings and housing search advice in Munich.",
+        zh: "查找慕尼黑学生宿舍、房源渠道和租房建议。"
       }
     }
   ];
 
   const SERVICE_IDS = SERVICES.map((service) => service.id);
   const SERVICE_TAGS = {
-    lsf: { de: "Kurse", en: "Courses", zh: "课程" },
-    moodle: { de: "Material", en: "Materials", zh: "资料" },
-    mailbox: { de: "Mail", en: "Mail", zh: "邮箱" },
-    qissos: { de: "Verwaltung", en: "Records", zh: "管理" },
-    account: { de: "Login", en: "Login", zh: "账号" },
-    workspace: { de: "Infos", en: "Info", zh: "信息" },
-    cloudprinting: { de: "Drucken", en: "Printing", zh: "打印" },
-    ub: { de: "Bibliothek", en: "Library", zh: "图书" },
-    mensa: { de: "Essen", en: "Food", zh: "食堂" },
-    zhs: { de: "Sport", en: "Sport", zh: "运动" },
-    lmu: { de: "Website", en: "Website", zh: "官网" },
-    it: { de: "Support", en: "Support", zh: "支持" },
-    raumfinder: { de: "Räume", en: "Rooms", zh: "教室" },
-    opac: { de: "Literatursuche", en: "Catalog", zh: "检索" },
-    "library-account": { de: "Ausleihen", en: "Loans", zh: "借阅" },
-    "e-medien": { de: "E-Ressourcen", en: "E-resources", zh: "电子资源" },
-    platzfinder: { de: "Freie Plätze", en: "Free seats", zh: "空位" },
-    "seat-booking": { de: "Reservieren", en: "Booking", zh: "预约" },
-    lmucard: { de: "Studierendenausweis", en: "Student card", zh: "校园卡" },
-    eduroam: { de: "WLAN", en: "Wi-Fi", zh: "无线网络" },
-    eduvpn: { de: "Netzzugang", en: "Network access", zh: "校外访问" },
-    vorlesungszeiten: { de: "Semestertermine", en: "Term dates", zh: "学期日期" },
-    sprachenzentrum: { de: "Sprachkurse", en: "Languages", zh: "语言课程" }
+    lsf: { de: "Kurs- und Prüfungsanmeldung", en: "Course and exam registration", zh: "课程和考试报名" },
+    moodle: { de: "Kursmaterial und Abgaben", en: "Materials and submissions", zh: "课程资料与作业提交" },
+    mailbox: { de: "Campus-E-Mails lesen", en: "Read campus email", zh: "收发校园邮件" },
+    qissos: { de: "Bescheinigungen und Beiträge", en: "Certificates and fees", zh: "在读证明与缴费记录" },
+    account: { de: "Kennung und Passwort verwalten", en: "Manage user ID and password", zh: "账号与密码管理" },
+    cloudprinting: { de: "Drucken, Kopieren und Scannen", en: "Print, copy and scan", zh: "打印、复印与扫描" },
+    ub: { de: "Bibliotheksangebote im Überblick", en: "Library services overview", zh: "图书馆服务总览" },
+    mensa: { de: "Speisepläne und Öffnungszeiten", en: "Menus and opening hours", zh: "食堂菜单与开放时间" },
+    zhs: { de: "Sportkurse und Anmeldung", en: "Sports courses and registration", zh: "体育课程与报名" },
+    lmu: { de: "Universität und Aktuelles", en: "University news and information", zh: "学校官网与最新资讯" },
+    it: { de: "Hilfe bei IT-Problemen", en: "Help with IT issues", zh: "账号、邮箱与 IT 问题支持" },
+    raumfinder: { de: "Räume und Gebäude finden", en: "Find rooms and buildings", zh: "教室与校园楼栋查询" },
+    opac: { de: "Bücher und E-Medien suchen", en: "Search books and e-resources", zh: "书籍与电子资源检索" },
+    "library-account": { de: "Ausleihen, Verlängern, Vormerken", en: "Loans, renewals and holds", zh: "借阅、续借与图书预约" },
+    "e-medien": { de: "E-Books, Zeitschriften, Datenbanken", en: "E-books, journals and databases", zh: "电子书、期刊与数据库登录" },
+    platzfinder: { de: "Freie Bibliotheksplätze prüfen", en: "Check available library seats", zh: "图书馆空位查询" },
+    "seat-booking": { de: "Lese- und Arbeitsplätze buchen", en: "Book library study seats", zh: "图书馆学习座位预约" },
+    lmucard: { de: "Beantragung und Kartennutzung", en: "Card application and use", zh: "校园卡申请与使用" },
+    eduroam: { de: "Campus-WLAN einrichten", en: "Set up campus Wi-Fi", zh: "校园 Wi-Fi 配置" },
+    eduvpn: { de: "Campusnetz von unterwegs nutzen", en: "Access the campus network remotely", zh: "校外访问校园网络" },
+    vorlesungszeiten: { de: "Vorlesungs- und freie Tage", en: "Teaching and lecture-free dates", zh: "开课、结课与停课日期" },
+    rueckmeldung: { de: "Fristen und Semesterbeiträge", en: "Re-enrollment dates and fees", zh: "下学期注册与缴费期限" },
+    semesterticket: { de: "Ticketstatus und Alternativen", en: "Ticket status and alternatives", zh: "交通票与替代方案" },
+    beratung: { de: "Studienberatung und Unterstützung", en: "Study advice and support", zh: "学业咨询与支持渠道" },
+    studienfinanzierung: { de: "BAföG und Stipendien", en: "BAföG and scholarships", zh: "学习资助与奖学金" },
+    wohnen: { de: "Wohnheime und Wohnungssuche", en: "Residences and housing search", zh: "学生宿舍与租房信息" }
   };
 
   const DEPARTMENTS = [
@@ -384,7 +423,7 @@
       profileTitle: "Profil",
       profileText: "Fächer und Dienste lassen sich jederzeit ändern.",
       noSubjectChip: "Noch kein Fach",
-      categories: { study: "Studium", student: "Studierendenservice", library: "Bibliothek", campus: "Campus" },
+      categories: { study: "Studium", student: "Studierendenservice", library: "Bibliothek", campus: "Campus", info: "Informationen" },
       roles: { major: "Hauptfach", minor: "Nebenfach", extra: "Fach" },
       settingsTitle: "Dashboard anpassen",
       settingsText: "Sprache, Darstellung, Fächer, sichtbare Dienste und Reihenfolge.",
@@ -451,7 +490,7 @@
       profileTitle: "Profile",
       profileText: "Subjects and services can be changed anytime.",
       noSubjectChip: "No subject yet",
-      categories: { study: "Study", student: "Student Services", library: "Library", campus: "Campus" },
+      categories: { study: "Study", student: "Student Services", library: "Library", campus: "Campus", info: "Information" },
       roles: { major: "Major", minor: "Minor", extra: "Subject" },
       settingsTitle: "Customize dashboard",
       settingsText: "Language, theme, subjects, visible services and order.",
@@ -518,7 +557,7 @@
       profileTitle: "个人配置",
       profileText: "专业和服务卡片都可以随时修改。",
       noSubjectChip: "还没有专业",
-      categories: { study: "学习", student: "学生事务", library: "图书馆", campus: "校园" },
+      categories: { study: "学习", student: "学生事务", library: "图书馆", campus: "校园", info: "信息" },
       roles: { major: "Hauptfach", minor: "Nebenfach", extra: "专业" },
       settingsTitle: "自定义 Dashboard",
       settingsText: "语言、外观、专业、显示的服务和卡片顺序。",
@@ -550,6 +589,10 @@
 
   const ICONS = {
     // New service icons use Lucide; attribution is in assets/icons/lucide-LICENSE.txt.
+    trainFront: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3.1V7a4 4 0 0 0 8 0V3.1m-7 11.9-1-1m7 1 1-1M9 19c-2.8 0-5-2.2-5-5v-4a8 8 0 0 1 16 0v4c0 2.8-2.2 5-5 5Zm-1 0-2 3m10-3 2 3"/></svg>',
+    messagesSquare: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2zM20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1"/></svg>',
+    banknote: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>',
+    house: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>',
     mapPin: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>',
     search: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>',
     creditCard: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>',

@@ -874,6 +874,9 @@ a {
 }
 
 .service-card .category-pill {
+  display: block;
+  width: auto;
+  max-width: 100%;
   min-height: auto;
   margin-top: 0.2rem;
   padding: 0;
@@ -883,6 +886,10 @@ a {
   color: var(--ink-600);
   font-size: 0.84rem;
   font-weight: 680;
+  line-height: 1.4;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  hyphens: auto;
 }
 
 .card-action {
