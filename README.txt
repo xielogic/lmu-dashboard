@@ -1,145 +1,68 @@
-LMU Dashboard V14
+LMU Dashboard V15
 Unofficial customizable dashboard for LMU students
 
-重要定位
-- 这是非官方项目，不属于 LMU München 官方网站。
-- 页面只保存本地设置：语言、外观、专业选择、卡片显示状态和卡片顺序。
-- 不保存、不收集、不要求任何 LMU 用户名、密码、学号或其他登录凭据。
+V15 更新
+- 新增独立“图书馆”分组，集中显示 UB、OPAC、Bibliothekskonto、E-Medien-Login、Platzfinder、Leseplatzreservierung。
+- 新增 Raumfinder、LMUcard、eduroam、eduVPN、Vorlesungszeiten、Sprachenzentrum。
+- 全部新增服务默认显示，旧用户隐藏过的卡片仍保持隐藏。
+- 四个分组：学习、学生事务、图书馆、校园。分组标题和短说明随德语、英语、中文切换，模块标题保持德语。
+- Mailbox 改为 LRZ Webmail 直接入口，Benutzerkonto 改为官方账户入口。
+- 设置界面也按分组显示；支持组内拖拽和上下移动。
+- 手机端较长的德语模块名称会换行，不使用省略号。
+- 更新页面和 service worker 的缓存版本。
+- 继续保留 V14 的 iPhone 安全区域修复、暗色主题、官方页眉 Logo 和单方块 App 图标。
+
+服务分组
+学习：LSF、Moodle、Workspace、Vorlesungszeiten、Sprachenzentrum。
+学生事务：Mailbox、Studienverwaltung、Benutzerkonto、LMUcard。
+图书馆：UB、OPAC、Bibliothekskonto、E-Medien-Login、Platzfinder、Leseplatzreservierung。
+校园：CloudPrinting、Mensa、ZHS、LMU、IT-Servicedesk、Raumfinder、eduroam、eduVPN。
+另保留“我的专业”区域。
+
+GitHub Pages 上传
+1. 解压 lmu-dashboard-v15.zip，打开里面的 lmu-dashboard-v15 文件夹。
+2. 将该文件夹内的所有文件和 assets 文件夹上传到仓库根目录。
+3. 用新版覆盖同名文件，不需要删除仓库。
+4. 不要把整个 lmu-dashboard-v15 文件夹作为额外一层上传。
+5. GitHub Pages 设置继续保持 main 分支、/(root)。
+6. 部署完成后打开 https://xielogic.github.io/lmu-dashboard/?v=15。
 
 文件结构
-上传到 GitHub Pages 仓库根目录时，请保留这个结构：
-
-lmu-dashboard-v14/
+lmu-dashboard-v15/
   index.html
   app.css
   app.js
   manifest.webmanifest
   sw.js
+  README.txt
   assets/
     icons/
-      app-icon.svg
-      favicon.svg
-      favicon-16.png
-      favicon-32.png
-      favicon.ico
-      lmu-app-icon-v9.svg
-      lmu-favicon-v9.svg
-      lmu-favicon-16-v9.png
-      lmu-favicon-32-v9.png
-      lmu-icon-192-v9.png
-      lmu-icon-512-v9.png
-      lmu-maskable-512-v9.png
-      lmu-apple-touch-icon-v9.png
-      lmu-app-icon-v10.svg
-      lmu-favicon-v10.svg
-      lmu-favicon-16-v10.png
-      lmu-favicon-32-v10.png
-      lmu-icon-192-v10.png
-      lmu-icon-512-v10.png
-      lmu-maskable-512-v10.png
-      lmu-apple-touch-icon-v10.png
-      lmu-app-icon-v11.svg
-      lmu-favicon-v11.svg
-      lmu-favicon-16-v11.png
-      lmu-favicon-32-v11.png
-      lmu-icon-192-v11.png
-      lmu-icon-512-v11.png
-      lmu-maskable-512-v11.png
-      lmu-apple-touch-icon-v11.png
       Logo_LMU.svg
-      apple-touch-icon.png
-      icon-192.png
-      icon-512.png
-      maskable-512.png
-  README.txt
+      favicon.ico
+      lmu-*-v11.svg / lmu-*-v11.png
+      lucide-LICENSE.txt
+      其他保留的兼容图标
 
-从 V13 更新到 V14
-1. 解压 ZIP。
-2. 打开解压后的 lmu-dashboard-v14 文件夹。
-3. 把里面的 index.html、app.css、app.js、manifest.webmanifest、sw.js 和 assets 文件夹一起上传到 GitHub 仓库根目录。
-4. 如果仓库里已有旧版 index.html、manifest.webmanifest、sw.js，请用新版替换。
-5. GitHub Pages 设置继续保持：
-   Source: Deploy from a branch
-   Branch: main
-   Folder: /(root)
+使用和隐私
+- 第一次进入时不预选专业；可搜索 Hauptfach / Nebenfach，也可跳过。
+- 专业、语言、外观、卡片可见状态和顺序只存于当前浏览器的 localStorage。
+- 更新时沿用原本的设置键，无需重新配置。新增入口会自动补入。
+- Dashboard 不保存、收集或要求 LMU 用户名、密码、学号等凭据。
+- 登录只发生在打开的 LMU、LRZ、UB 或官方指定合作方页面。
+- 这是非官方项目；页面底部保留非官方说明。
+- 可继续使用 Safari 添加到 iPhone 主屏幕或 Mac 程序坞。
+- 若已安装的网页 App 暂时仍显示旧版，先在 Safari 打开上面的 V15 地址，关闭并重新打开网页 App。
 
-V14 更新重点
-- 修正 iPhone 添加到主屏幕后顶部栏和状态栏/灵动岛重叠的问题。
-- 顶部栏加入 iPhone 安全区域距离，Logo 和设置按钮会自动往下避开。
-- 小屏幕上设置按钮只显示齿轮图标，保留可点击范围，避免顶部过挤。
-- PWA 状态栏不再使用透明覆盖模式。
+官方入口核对（2026-10-09）
+Raumfinder：https://www.lmu.de/raumfinder/
+UB：https://www.ub.lmu.de/de/
+OPAC：https://opac.ub.lmu.de/
+Bibliothekskonto：https://opac.ub.lmu.de/MyResearch/Home?lng=de
+Platzfinder：https://www.ub.lmu.de/de/standorte/platzfinder/
+座位预约和电子资源登录入口来源：https://www.ub.lmu.de/de/standorte/
+邮箱入口来源：https://www.lmu.de/de/die-lmu/struktur/zentrale-universitaetsverwaltung/it-services-division/it-servicedesk/zentrale-it-angebote/e-mail-mailbox/
+账户、校园卡和校园网络入口来源：https://www.lmu.de/de/die-lmu/struktur/zentrale-universitaetsverwaltung/it-services-division/it-servicedesk/zentrale-it-angebote/
+Vorlesungszeiten：https://www.lmu.de/de/workspace-fuer-studierende/1x1-des-studiums/vorlesungszeiten/
+Sprachenzentrum：https://www.lmu.de/sprachenzentrum/de/
 
-V13 更新重点
-- 修正黑夜模式下主页背景发灰、层次不自然的问题。
-- 重新调整暗色主题的页面背景、卡片、按钮、输入框和设置弹窗颜色。
-- CSS、JS、manifest 和 service worker 使用 V13 缓存标记，减少旧样式缓存影响。
-
-首次使用
-- 第一次打开会进入设置向导。
-- 用户需要搜索并选择 Hauptfach，可选 Nebenfach。
-- 系统不会默认显示某个用户的专业。
-- 用户可以之后继续添加专业、隐藏服务、调整卡片顺序、切换语言和外观。
-
-V12 更新重点
-- 校园分组新增 ZHS，链接到 https://kurse.zhs-muenchen.de/de。
-- ZHS 卡片使用运动图标，短标签为 Sport / 运动。
-
-V11 更新重点
-- favicon 和 PWA 图标改为官方 Logo 左侧的单个 LMU 方块。
-- 不再使用两个方块横版 Logo 作为 App 小图标。
-- 保留页眉里的完整 LMU 横版 Logo。
-
-V10 更新重点
-- 修正上一版 PWA 图标过于简化、看起来不像官方 Logo 的问题。
-- iPhone 主屏幕图标改为白底居中的完整 LMU 官方 Logo。
-- favicon 和 PWA 图标使用 V10 专用文件名，继续减少浏览器旧缓存影响。
-
-V9 更新重点
-- 为浏览器小图标使用全新的文件名，减少旧 favicon 缓存不更新的问题。
-- 新增 favicon.ico 兜底文件，兼容会自动寻找传统图标的浏览器。
-- manifest 和启动图标也改用 V9 专用文件名。
-
-V8 更新重点
-- 语言切换按钮的选中颜色改为 LMU Logo 官方绿色 #00883A。
-- 浏览器 favicon 改为 LMU 方形标识。
-- PWA 和 iPhone 主屏幕图标改为 LMU 风格绿色图标。
-
-V7 更新重点
-- 去掉页眉下方的绿色/蓝色横线。
-- 去掉主页标题区域右侧重复的设置按钮，只保留页眉右上角的设置入口。
-
-V6 更新重点
-- 分组标题恢复随语言切换：德语、英语、中文分别显示对应语言。
-- 服务模块标题固定使用德语名称，例如 Benutzerkonto、Studienverwaltung、IT-Servicedesk。
-- 校园分组新增 CloudPrinting，链接到 LMU 打印服务。
-- 继续优化 LMU 风格视觉：更正式的页眉、更干净的页面背景、更克制的卡片和分组样式。
-
-V5 更新重点
-- 主页移除“常用入口”标题、说明文字和服务数量标签。
-- QISSOS 显示名称改为 Studienverwaltung。
-- Meine Fächer 板块加回主页，但不显示长介绍。
-
-V4 更新重点
-- 页眉使用提供的官方 LMU Logo 文件。
-- 页眉不再显示介绍文字和 Unofficial 标签；非官方说明保留在页面底部。
-- 主页卡片小标签改为每个入口自己的极短说明，不再重复分组名。
-- 主页去掉“我的专业”区域，专业仍可在设置里修改。
-
-V3 更新重点
-- 首次配置完成后，主页不再显示“个人配置”侧栏。
-- 服务卡片恢复按板块分组：学习、学生事务、校园。
-- 主页卡片不再显示长描述，避免德语文字被省略号截断。
-- 隐藏、显示和排序服务统一放到设置里。
-- 页眉加入更精致的 LMU 风格标识，并继续明确标注 Unofficial。
-
-iPhone 添加到主屏幕
-1. 等 GitHub Pages 部署完成后，用 iPhone Safari 打开网站。
-2. 点击分享按钮。
-3. 选择“添加到主屏幕”。
-4. 名称可以填 LMU 或 LMU Dashboard。
-
-缓存提示
-PWA 会使用 service worker 缓存文件。更新旧版本后，如果手机仍然显示旧界面：
-- 先刷新网页。
-- 如果已经添加到主屏幕，可以删除旧图标后重新添加。
-- 桌面浏览器也可以清除该网站缓存后再打开。
+新增服务图标使用 Lucide，授权文本位于 assets/icons/lucide-LICENSE.txt。

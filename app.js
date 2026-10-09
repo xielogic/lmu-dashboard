@@ -5,7 +5,7 @@
   const STORAGE_VERSION = 2;
   const LANGUAGES = ["de", "en", "zh"];
   const THEMES = ["system", "light", "dark"];
-  const CATEGORY_ORDER = ["study", "student", "campus"];
+  const CATEGORY_ORDER = ["study", "student", "library", "campus"];
 
   const SERVICES = [
     {
@@ -36,12 +36,12 @@
       id: "mailbox",
       category: "student",
       icon: "mail",
-      url: "https://www.portal.lmu.de/",
+      url: "https://webmail.lrz.de/",
       title: { de: "Mailbox", en: "Mailbox", zh: "学生邮箱" },
       description: {
-        de: "Campus-Mailbox über das LMU-Portal öffnen.",
-        en: "Open your campus mailbox through the LMU portal.",
-        zh: "通过 LMU Portal 打开校园邮箱。"
+        de: "Campus-Mailbox direkt im Webmail-Service des LRZ öffnen.",
+        en: "Open your campus mailbox directly in LRZ Webmail.",
+        zh: "直接通过 LRZ Webmail 打开校园邮箱。"
       }
     },
     {
@@ -60,7 +60,7 @@
       id: "account",
       category: "student",
       icon: "user",
-      url: "https://www.portal.lmu.de/",
+      url: "https://www.portal.lmu.de/benutzerkonto/",
       title: { de: "Benutzerkonto", en: "User account", zh: "用户账户" },
       description: {
         de: "LMU-Benutzerkennung, Passwort und Kontoeinstellungen.",
@@ -94,7 +94,7 @@
     },
     {
       id: "ub",
-      category: "campus",
+      category: "library",
       icon: "book",
       url: "https://www.ub.lmu.de/de/",
       title: { de: "UB", en: "Library", zh: "大学图书馆" },
@@ -151,6 +151,138 @@
         en: "Help with user ID, mailbox, LMUcard and IT services.",
         zh: "LMU 用户、邮箱、LMUcard 和 IT 服务支持。"
       }
+    },
+    {
+      id: "raumfinder",
+      category: "campus",
+      icon: "mapPin",
+      url: "https://www.lmu.de/raumfinder/",
+      title: { de: "Raumfinder", en: "Raumfinder", zh: "Raumfinder" },
+      description: {
+        de: "Gebäude, Hörsäle und Räume auf dem LMU-Campus finden.",
+        en: "Find campus buildings, lecture halls and rooms.",
+        zh: "查找校园楼栋、教室和楼层平面图。"
+      }
+    },
+    {
+      id: "opac",
+      category: "library",
+      icon: "search",
+      url: "https://opac.ub.lmu.de/",
+      title: { de: "OPAC", en: "OPAC", zh: "OPAC" },
+      description: {
+        de: "Bücher, Aufsätze und elektronische Medien der UB suchen.",
+        en: "Search the library's books, articles and electronic resources.",
+        zh: "搜索图书馆的书籍、论文和电子资源。"
+      }
+    },
+    {
+      id: "library-account",
+      category: "library",
+      icon: "bookOpenText",
+      url: "https://opac.ub.lmu.de/MyResearch/Home?lng=de",
+      title: { de: "Bibliothekskonto", en: "Bibliothekskonto", zh: "Bibliothekskonto" },
+      description: {
+        de: "Ausleihen, Verlängerungen und Vormerkungen verwalten.",
+        en: "Manage loans, renewals and holds.",
+        zh: "查看借阅、续借和图书预约。"
+      }
+    },
+    {
+      id: "e-medien",
+      category: "library",
+      icon: "fileText",
+      url: "https://login.emedien.ub.uni-muenchen.de/login",
+      title: { de: "E-Medien-Login", en: "E-Medien-Login", zh: "E-Medien-Login" },
+      description: {
+        de: "Für lizenzierte E-Books, Zeitschriften und Datenbanken anmelden.",
+        en: "Sign in to access licensed e-books, journals and databases.",
+        zh: "登录访问授权电子书、期刊和数据库。"
+      }
+    },
+    {
+      id: "platzfinder",
+      category: "library",
+      icon: "armchair",
+      url: "https://www.ub.lmu.de/de/standorte/platzfinder/",
+      title: { de: "Platzfinder", en: "Platzfinder", zh: "Platzfinder" },
+      description: {
+        de: "Aktuelle Auslastung und freie Leseplätze der UB ansehen.",
+        en: "Check library occupancy and available reading seats.",
+        zh: "查看图书馆当前空位和使用情况。"
+      }
+    },
+    {
+      id: "seat-booking",
+      category: "library",
+      icon: "calendarCheck",
+      url: "https://auth.anny.eu/start-session?entityId=https%3A%2F%2Flmuidp.lrz.de%2Fidp%2Fshibboleth",
+      title: { de: "Leseplatzreservierung", en: "Leseplatzreservierung", zh: "Leseplatzreservierung" },
+      description: {
+        de: "Reservierbare Lese- und Arbeitsplätze über Anny buchen.",
+        en: "Book reservable library reading and study seats through Anny.",
+        zh: "通过 Anny 预约图书馆可预订的阅读和学习座位。"
+      }
+    },
+    {
+      id: "lmucard",
+      category: "student",
+      icon: "creditCard",
+      url: "https://www.lmu.de/de/die-lmu/struktur/zentrale-universitaetsverwaltung/it-services-division/it-servicedesk/zentrale-it-angebote/lmucard/",
+      title: { de: "LMUcard", en: "LMUcard", zh: "LMUcard" },
+      description: {
+        de: "Informationen zur Beantragung, Abholung und Nutzung der LMUcard.",
+        en: "Information about applying for, collecting and using your LMUcard.",
+        zh: "校园卡申请、领取和使用说明。"
+      }
+    },
+    {
+      id: "eduroam",
+      category: "campus",
+      icon: "wifi",
+      url: "https://www.lmu.de/de/die-lmu/struktur/zentrale-universitaetsverwaltung/it-services-division/it-servicedesk/zentrale-it-angebote/wlan-eduroam/",
+      title: { de: "eduroam", en: "eduroam", zh: "eduroam" },
+      description: {
+        de: "Campus-WLAN auf Smartphone, Tablet und Computer einrichten.",
+        en: "Set up campus Wi-Fi on your phone, tablet or computer.",
+        zh: "在手机、平板和电脑上配置校园 Wi-Fi。"
+      }
+    },
+    {
+      id: "eduvpn",
+      category: "campus",
+      icon: "shieldCheck",
+      url: "https://www.lmu.de/de/die-lmu/struktur/zentrale-universitaetsverwaltung/it-services-division/it-servicedesk/zentrale-it-angebote/vpn-zugang-zum-muenchner-wissenschaftsnetz/",
+      title: { de: "eduVPN", en: "eduVPN", zh: "eduVPN" },
+      description: {
+        de: "Zugang zum Münchner Wissenschaftsnetz von unterwegs einrichten.",
+        en: "Set up remote access to the Munich Scientific Network.",
+        zh: "配置校外访问慕尼黑科研网络的 VPN。"
+      }
+    },
+    {
+      id: "vorlesungszeiten",
+      category: "study",
+      icon: "calendar",
+      url: "https://www.lmu.de/de/workspace-fuer-studierende/1x1-des-studiums/vorlesungszeiten/",
+      title: { de: "Vorlesungszeiten", en: "Vorlesungszeiten", zh: "Vorlesungszeiten" },
+      description: {
+        de: "Vorlesungsbeginn, Vorlesungsende und vorlesungsfreie Tage nachsehen.",
+        en: "Check teaching dates and lecture-free days.",
+        zh: "查看开课、结课和停课日期。"
+      }
+    },
+    {
+      id: "sprachenzentrum",
+      category: "study",
+      icon: "languages",
+      url: "https://www.lmu.de/sprachenzentrum/de/",
+      title: { de: "Sprachenzentrum", en: "Sprachenzentrum", zh: "Sprachenzentrum" },
+      description: {
+        de: "Sprachkurse, Einstufungstests und Sprachnachweise finden.",
+        en: "Find language courses, placement tests and language certificates.",
+        zh: "查找语言课程、分级测试和语言证明。"
+      }
     }
   ];
 
@@ -167,7 +299,18 @@
     mensa: { de: "Essen", en: "Food", zh: "食堂" },
     zhs: { de: "Sport", en: "Sport", zh: "运动" },
     lmu: { de: "Website", en: "Website", zh: "官网" },
-    it: { de: "Support", en: "Support", zh: "支持" }
+    it: { de: "Support", en: "Support", zh: "支持" },
+    raumfinder: { de: "Räume", en: "Rooms", zh: "教室" },
+    opac: { de: "Literatursuche", en: "Catalog", zh: "检索" },
+    "library-account": { de: "Ausleihen", en: "Loans", zh: "借阅" },
+    "e-medien": { de: "E-Ressourcen", en: "E-resources", zh: "电子资源" },
+    platzfinder: { de: "Freie Plätze", en: "Free seats", zh: "空位" },
+    "seat-booking": { de: "Reservieren", en: "Booking", zh: "预约" },
+    lmucard: { de: "Studierendenausweis", en: "Student card", zh: "校园卡" },
+    eduroam: { de: "WLAN", en: "Wi-Fi", zh: "无线网络" },
+    eduvpn: { de: "Netzzugang", en: "Network access", zh: "校外访问" },
+    vorlesungszeiten: { de: "Semestertermine", en: "Term dates", zh: "学期日期" },
+    sprachenzentrum: { de: "Sprachkurse", en: "Languages", zh: "语言课程" }
   };
 
   const DEPARTMENTS = [
@@ -241,7 +384,7 @@
       profileTitle: "Profil",
       profileText: "Fächer und Dienste lassen sich jederzeit ändern.",
       noSubjectChip: "Noch kein Fach",
-      categories: { study: "Studium", student: "Studierendenservice", campus: "Campus" },
+      categories: { study: "Studium", student: "Studierendenservice", library: "Bibliothek", campus: "Campus" },
       roles: { major: "Hauptfach", minor: "Nebenfach", extra: "Fach" },
       settingsTitle: "Dashboard anpassen",
       settingsText: "Sprache, Darstellung, Fächer, sichtbare Dienste und Reihenfolge.",
@@ -308,7 +451,7 @@
       profileTitle: "Profile",
       profileText: "Subjects and services can be changed anytime.",
       noSubjectChip: "No subject yet",
-      categories: { study: "Study", student: "Student Services", campus: "Campus" },
+      categories: { study: "Study", student: "Student Services", library: "Library", campus: "Campus" },
       roles: { major: "Major", minor: "Minor", extra: "Subject" },
       settingsTitle: "Customize dashboard",
       settingsText: "Language, theme, subjects, visible services and order.",
@@ -375,7 +518,7 @@
       profileTitle: "个人配置",
       profileText: "专业和服务卡片都可以随时修改。",
       noSubjectChip: "还没有专业",
-      categories: { study: "学习", student: "学生事务", campus: "校园" },
+      categories: { study: "学习", student: "学生事务", library: "图书馆", campus: "校园" },
       roles: { major: "Hauptfach", minor: "Nebenfach", extra: "专业" },
       settingsTitle: "自定义 Dashboard",
       settingsText: "语言、外观、专业、显示的服务和卡片顺序。",
@@ -406,6 +549,17 @@
   };
 
   const ICONS = {
+    // New service icons use Lucide; attribution is in assets/icons/lucide-LICENSE.txt.
+    mapPin: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>',
+    search: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>',
+    creditCard: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>',
+    wifi: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h.01M2 8.82a15 15 0 0 1 20 0M5 12.859a10 10 0 0 1 14 0M8.5 16.429a5 5 0 0 1 7 0"/></svg>',
+    shieldCheck: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>',
+    armchair: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3M3 16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0zM5 18v2M19 18v2"/></svg>',
+    bookOpenText: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14M16 12h2M16 8h2M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3zM6 12h2M6 8h2"/></svg>',
+    calendarCheck: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18M9 16l2 2 4-4"/></svg>',
+    fileText: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2zM14 2v5a1 1 0 0 0 1 1h5M10 9H8M16 13H8M16 17H8"/></svg>',
+    languages: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6m-7 0 6-6 2-3M2 5h12M7 2h1m14 20-5-10-5 10M14 18h6"/></svg>',
     settings: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 8.2a3.8 3.8 0 1 0 0 7.6 3.8 3.8 0 0 0 0-7.6Z" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M19.4 13.6v-3.2l-2.1-.7a6.2 6.2 0 0 0-.7-1.6l1-2-2.2-2.2-2 .9a6.9 6.9 0 0 0-1.7-.7L10.9 2H7.8l-.7 2.1a6.9 6.9 0 0 0-1.7.7l-2-.9-2.2 2.2 1 2a6.2 6.2 0 0 0-.7 1.6l-2.1.7v3.2l2.1.7c.2.6.4 1.1.7 1.6l-1 2 2.2 2.2 2-.9c.5.3 1.1.5 1.7.7l.7 2.1h3.1l.8-2.1c.6-.2 1.1-.4 1.7-.7l2 .9 2.2-2.2-1-2c.3-.5.5-1 .7-1.6l2.2-.7Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.4" transform="translate(2)"/></svg>',
     sun: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.8v2.4M12 18.8v2.4M4.2 4.2l1.7 1.7m12.2 12.2 1.7 1.7M2.8 12h2.4m13.6 0h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/></svg>',
     moon: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.5 15.4A8.5 8.5 0 0 1 8.6 3.5 8.7 8.7 0 1 0 20.5 15.4Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/></svg>',
@@ -743,12 +897,13 @@
 
   function renderServiceCard(service) {
     const title = serviceTitle(service);
+    const description = localize(service.description);
     const tag = localize(SERVICE_TAGS[service.id] || { de: "", en: "", zh: "" });
     return `
-      <a class="service-card" href="${escapeAttr(service.url)}" target="_blank" rel="noopener noreferrer">
+      <a class="service-card" href="${escapeAttr(service.url)}" target="_blank" rel="noopener noreferrer" title="${escapeAttr(description)}" aria-label="${escapeAttr(`${title}: ${description}`)}">
         <span class="icon-wrap">${icon(service.icon)}</span>
         <span class="service-card-content">
-          <strong>${escapeHtml(title)}</strong>
+          <strong lang="de">${escapeHtml(title)}</strong>
           <span class="category-pill">${escapeHtml(tag)}</span>
         </span>
         <span class="card-action">${icon("external")}<span class="sr-only">${escapeHtml(t("open"))}</span></span>
@@ -833,7 +988,12 @@
           <section class="settings-section">
             <h3>${escapeHtml(t("serviceSection"))}</h3>
             <p class="section-copy">${escapeHtml(t("serviceSectionText"))}</p>
-            <div class="service-list">${getOrderedServices().map(renderServiceControl).join("")}</div>
+            ${CATEGORY_ORDER.map((category) => `
+              <section class="service-control-group" aria-labelledby="settings-services-${category}">
+                <h4 id="settings-services-${category}">${escapeHtml(t(`categories.${category}`))}</h4>
+                <div class="service-list">${getOrderedServices().filter((service) => service.category === category).map(renderServiceControl).join("")}</div>
+              </section>
+            `).join("")}
           </section>
 
           <section class="settings-section">
@@ -850,7 +1010,7 @@
     if (wasOpen) dialog.setAttribute("open", "");
   }
 
-  function renderServiceControl(service) {
+  function renderServiceControl(service, index, services) {
     const checked = !settings.hiddenServiceIds.includes(service.id);
     const title = serviceTitle(service);
     return `
@@ -858,12 +1018,12 @@
         <input type="checkbox" data-toggle-service="${escapeAttr(service.id)}" ${checked ? "checked" : ""} aria-label="${escapeAttr(title)}">
         <span class="icon-wrap">${icon(service.icon)}</span>
         <span>
-          <strong>${escapeHtml(title)}</strong>
+          <strong lang="de">${escapeHtml(title)}</strong>
           <span>${escapeHtml(t(`categories.${service.category}`))}</span>
         </span>
         <span class="service-control-actions">
-          <button type="button" class="drag-button" data-move-service="${escapeAttr(service.id)}" data-direction="-1" aria-label="${escapeAttr(t("moveUp"))}">${icon("up")}</button>
-          <button type="button" class="drag-button" data-move-service="${escapeAttr(service.id)}" data-direction="1" aria-label="${escapeAttr(t("moveDown"))}">${icon("down")}</button>
+          <button type="button" class="drag-button" data-move-service="${escapeAttr(service.id)}" data-direction="-1" aria-label="${escapeAttr(`${t("moveUp")}: ${title}`)}" title="${escapeAttr(t("moveUp"))}" ${index === 0 ? "disabled" : ""}>${icon("up")}</button>
+          <button type="button" class="drag-button" data-move-service="${escapeAttr(service.id)}" data-direction="1" aria-label="${escapeAttr(`${t("moveDown")}: ${title}`)}" title="${escapeAttr(t("moveDown"))}" ${index === services.length - 1 ? "disabled" : ""}>${icon("down")}</button>
         </span>
       </div>
     `;
@@ -1100,19 +1260,30 @@
   }
 
   function moveService(id, direction) {
-    const index = settings.serviceOrder.indexOf(id);
-    const nextIndex = index + Number(direction);
-    if (index < 0 || nextIndex < 0 || nextIndex >= settings.serviceOrder.length) return;
+    const service = SERVICES.find((entry) => entry.id === id);
+    if (!service) return;
+    const group = getOrderedServices().filter((entry) => entry.category === service.category);
+    const index = group.findIndex((entry) => entry.id === id);
+    const neighbor = group[index + Number(direction)];
+    if (!neighbor) return;
     const order = [...settings.serviceOrder];
-    const [item] = order.splice(index, 1);
-    order.splice(nextIndex, 0, item);
+    const sourceIndex = order.indexOf(id);
+    const targetIndex = order.indexOf(neighbor.id);
+    [order[sourceIndex], order[targetIndex]] = [order[targetIndex], order[sourceIndex]];
     settings.serviceOrder = order;
     saveSettings();
     renderShell();
   }
 
+  function canReorderServices(sourceId, targetId) {
+    if (!sourceId || !targetId || sourceId === targetId) return false;
+    const source = SERVICES.find((service) => service.id === sourceId);
+    const target = SERVICES.find((service) => service.id === targetId);
+    return Boolean(source && target && source.category === target.category);
+  }
+
   function reorderService(sourceId, targetId) {
-    if (!sourceId || !targetId || sourceId === targetId) return;
+    if (!canReorderServices(sourceId, targetId)) return;
     const order = settings.serviceOrder.filter((id) => id !== sourceId);
     const targetIndex = order.indexOf(targetId);
     if (targetIndex < 0) return;
@@ -1317,7 +1488,7 @@
 
   function handleDragOver(event) {
     const target = event.target.closest("[data-drag-service]");
-    if (!target || !draggedServiceId || target.dataset.dragService === draggedServiceId) return;
+    if (!target || !canReorderServices(draggedServiceId, target.dataset.dragService)) return;
     event.preventDefault();
     target.classList.add("is-drop-target");
     event.dataTransfer.dropEffect = "move";

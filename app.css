@@ -831,6 +831,8 @@ a {
   display: block;
   font-size: 1rem;
   line-height: 1.22;
+  overflow-wrap: anywhere;
+  hyphens: auto;
 }
 
 .service-card p,
@@ -1022,6 +1024,30 @@ a {
   display: grid;
   gap: 0.55rem;
   margin-top: 1rem;
+}
+
+.service-control-group {
+  margin-top: 1.25rem;
+}
+
+.service-control-group h4 {
+  margin: 0;
+  color: var(--ink-800);
+  font-size: 0.9rem;
+}
+
+.service-control-group .service-list {
+  margin-top: 0.6rem;
+}
+
+.service-control strong {
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.service-control-actions button:disabled {
+  opacity: 0.3;
+  cursor: default;
 }
 
 .service-control {
