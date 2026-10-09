@@ -1,10 +1,10 @@
-const CACHE_NAME = "lmu-dashboard-v16-2026-10-09";
+const CACHE_NAME = "lmu-dashboard-v17-2026-10-09";
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./app.css?v=16",
-  "./app.js?v=16",
-  "./manifest.webmanifest?v=16",
+  "./app.css?v=17",
+  "./app.js?v=17",
+  "./manifest.webmanifest?v=17",
   "./assets/icons/Logo_LMU.svg",
   "./assets/icons/lmu-app-icon-v11.svg",
   "./assets/icons/lmu-favicon-v11.svg",

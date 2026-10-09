@@ -1015,10 +1015,50 @@ a {
   gap: 1rem;
   padding: 0.8rem 0;
   border-bottom: 1px solid var(--line);
+  min-height: 2.75rem;
+  cursor: pointer;
 }
 
 .switch-row:last-child {
   border-bottom: 0;
+}
+
+.switch-row input[role="switch"] {
+  appearance: none;
+  -webkit-appearance: none;
+  display: grid;
+  align-items: center;
+  flex: 0 0 2.75rem;
+  width: 2.75rem;
+  height: 1.5rem;
+  margin: 0;
+  padding: 0.125rem;
+  border: 1px solid var(--ink-600);
+  border-radius: 999px;
+  background: var(--ink-600);
+  cursor: pointer;
+}
+
+.switch-row input[role="switch"]::before {
+  content: "";
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.switch-row input[role="switch"]:checked {
+  border-color: var(--green-800);
+  background: var(--green-800);
+}
+
+.switch-row input[role="switch"]:checked::before {
+  transform: translateX(1.25rem);
+}
+
+.switch-row input[role="switch"]:focus-visible {
+  outline: 2px solid var(--green-800);
+  outline-offset: 3px;
 }
 
 .switch-row span,

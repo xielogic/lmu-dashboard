@@ -434,6 +434,7 @@
       extraSubjects: "Weitere Fächer",
       serviceSection: "Dienste anzeigen und sortieren",
       serviceSectionText: "Ziehe Einträge zum Sortieren oder blende einzelne Karten aus.",
+      showCardDescriptions: "Kartenbeschreibungen anzeigen",
       privacySection: "Datenschutz",
       privacyText: "Dieses Dashboard speichert nur Sprache, Darstellung, Fächer, Reihenfolge und ausgeblendete Karten in localStorage. Es speichert keine Matrikelnummer, keine LMU-Benutzerkennung und kein Passwort.",
       resetSettings: "Alles zurücksetzen",
@@ -501,6 +502,7 @@
       extraSubjects: "Additional subjects",
       serviceSection: "Show and sort services",
       serviceSectionText: "Drag entries to sort or hide individual cards.",
+      showCardDescriptions: "Show card descriptions",
       privacySection: "Privacy",
       privacyText: "This dashboard stores only language, theme, subjects, order and hidden cards in localStorage. It does not store matriculation numbers, LMU user IDs or passwords.",
       resetSettings: "Reset everything",
@@ -568,6 +570,7 @@
       extraSubjects: "其他专业",
       serviceSection: "显示与排序服务",
       serviceSectionText: "拖动条目排序，也可以隐藏不常用的卡片。",
+      showCardDescriptions: "显示卡片说明",
       privacySection: "隐私",
       privacyText: "这个 Dashboard 只把语言、外观、专业、卡片顺序和隐藏状态保存在 localStorage。不会保存学号、LMU 用户名或密码。",
       resetSettings: "全部重置",
@@ -659,6 +662,7 @@
       },
       serviceOrder: [...SERVICE_IDS],
       hiddenServiceIds: [],
+      showCardDescriptions: true,
       editMode: false
     };
   }
@@ -702,6 +706,9 @@
       hiddenServiceIds: Array.isArray(raw.hiddenServiceIds)
         ? unique(raw.hiddenServiceIds.filter((id) => SERVICE_IDS.includes(id)))
         : [],
+      showCardDescriptions: typeof raw.showCardDescriptions === "boolean"
+        ? raw.showCardDescriptions
+        : base.showCardDescriptions,
       editMode: Boolean(raw.editMode)
     };
   }
@@ -947,7 +954,7 @@
         <span class="icon-wrap">${icon(service.icon)}</span>
         <span class="service-card-content">
           <strong lang="de">${escapeHtml(title)}</strong>
-          <span class="category-pill">${escapeHtml(tag)}</span>
+          ${settings.showCardDescriptions ? `<span class="category-pill">${escapeHtml(tag)}</span>` : ""}
         </span>
         <span class="card-action">${icon("external")}<span class="sr-only">${escapeHtml(t("open"))}</span></span>
       </a>
@@ -1003,6 +1010,10 @@
                 </div>
               </div>
             </div>
+            <label class="switch-row" for="cardDescriptionsToggle">
+              <span>${escapeHtml(t("showCardDescriptions"))}</span>
+              <input id="cardDescriptionsToggle" type="checkbox" role="switch" data-toggle-card-descriptions ${settings.showCardDescriptions ? "checked" : ""}>
+            </label>
           </section>
 
           <section class="settings-section">
@@ -1345,6 +1356,14 @@
     renderShell();
   }
 
+  function setCardDescriptionsVisible(visible) {
+    settings.showCardDescriptions = Boolean(visible);
+    saveSettings();
+    if (settings.setupComplete) renderDashboard();
+    const toggle = document.getElementById("cardDescriptionsToggle");
+    if (toggle) toggle.checked = settings.showCardDescriptions;
+  }
+
   function openSettings() {
     if (typeof dialog.showModal === "function" && !dialog.open) {
       dialog.showModal();
@@ -1510,6 +1529,11 @@
   }
 
   function handleChange(event) {
+    const descriptionsToggle = event.target.closest("[data-toggle-card-descriptions]");
+    if (descriptionsToggle) {
+      setCardDescriptionsVisible(descriptionsToggle.checked);
+      return;
+    }
     const toggle = event.target.closest("[data-toggle-service]");
     if (toggle) {
       setServiceVisible(toggle.dataset.toggleService, toggle.checked);
